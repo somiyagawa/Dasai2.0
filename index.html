@@ -454,4 +454,150 @@
 
 
         document.getElementById('generateButton').addEventListener('click', () => {
-            playUglyMidi();
+            playUglyMidi(); // MIDI再生開始
+
+            const userTitle = document.getElementById('pageTitle').value || "無題の電脳覇王 in サイバースペース・ジ・エンド・オブ・ワールド";
+            const userContent = document.getElementById('pageContent').value || "ここに何か宇宙規模のすごいことが書いてあったはずなんだ…思い出せないけど。まあ、気にしないでくれ！と言いつつ、やっぱり気にしてほしい自分がいる今日この頃、皆様いかがお過ごしでしょうか？刮目せよ！そして崇めよ！我が闇の聖典（ダークバイブル）に記されし真実を！";
+            const outputArea = document.getElementById('outputArea');
+
+            showUglyModal(
+                getRandomElement(["最終禁断警告じゃ！刮目せよ！", "緊急次元断層発生！", "見て見て見てー！ヤバいのが顕現した！"]),
+                "超絶デンジャラスでギルティでアナーキーでカオティックな（？）ページが爆誕したぞ！魂を揺さぶられる準備はいいか！？心臓の弱い方は閲覧禁止！精神汚染・SAN値直葬されても知らんぞ！",
+                getRandomElement(classicGifs)
+            );
+
+            let html = '';
+            const bodyColors = getRandomElement(garishColorPairs);
+            let overallStyle = `background-color: ${bodyColors.bg} !important; color: ${bodyColors.text} !important; font-family: ${getRandomElement(badFonts)} !important; padding: 30px !important; border: 30px ${getRandomElement(['groove', 'ridge', 'inset', 'outset', 'double'])} ${getRandomElement(garishColorPairs).bg} !important;`;
+            if (Math.random() < 0.7) overallStyle += ` background-image: url('https://placehold.co/60x60/${getRandomElement(garishColorPairs).bg.substring(1)}/${getRandomElement(garishColorPairs).text.substring(1)}/gif?text=カオス&font=impact'); background-repeat: repeat !important; background-blend-mode: ${getRandomElement(['multiply', 'screen', 'overlay', 'darken', 'lighten', 'color-dodge', 'color-burn', 'hard-light', 'soft-light', 'difference', 'exclusion', 'hue', 'saturation', 'color', 'luminosity'])} !important;`;
+            if (Math.random() < 0.6) overallStyle = `padding: 30px !important; border: 30px ${getRandomElement(['groove', 'ridge', 'inset', 'outset', 'double'])} ${getRandomElement(garishColorPairs).bg} !important;` + ` class="ugly-rainbow-bg"`;
+
+            html += `<div id="generatedContent" style="${overallStyle}">`;
+            html += `<style>
+                /* ダウンロード用インラインスタイルは前バージョンから流用しつつ、新しいタイトルアニメーションも追加 */
+                @keyframes blink { 0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); } 25% { opacity: 0.05; transform: scale(1.15) rotate(-4deg); } 50% { opacity: 1; transform: scale(0.95) rotate(0deg); } 75% { opacity: 0.05; transform: scale(1.15) rotate(4deg); } }
+                .ugly-blink { animation: blink 0.4s linear infinite; }
+                .icon-blink { display: inline-block; animation: blink 0.25s linear infinite alternate; }
+                @keyframes marquee-scroll { 0% { transform: translateX(80px) rotate(-4deg) skewX(-7deg); } 25% { transform: translateX(-200%) rotate(1deg) skewX(2deg) scaleY(1.2); } 50% { transform: translateX(-400%) rotate(4deg) skewX(7deg) scaleY(0.8); } 75% { transform: translateX(-600%) rotate(-1deg) skewX(-2deg) scaleY(1.1); } 100% { transform: translateX(-800%) rotate(-4deg) skewX(-7deg); } }
+                .ugly-marquee-container { width: 100%; overflow: hidden; padding: 12px 0; margin: 18px 0; transform: skewY(-3deg) rotate(1deg); }
+                .ugly-marquee-text { display: inline-block; padding-left: 100%; animation: marquee-scroll 5s linear infinite; white-space: nowrap; font-size: 30pt; font-weight: 900; }
+                @keyframes rainbow-flow { 0% { background-position: 0% center; } 50% { background-position: 250% center; } 100% { background-position: 500% center; } }
+                .ugly-rainbow-text { background-image: linear-gradient(60deg, red,deeppink,orange,yellow,lime,springgreen,cyan,blue,darkviolet,magenta,red,deeppink,orange,yellow,lime,springgreen,cyan,blue,darkviolet,magenta); background-size: 500% auto; -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 900; animation: rainbow-flow 0.8s linear infinite; }
+                @keyframes wavy-text-anim { 0%, 100% { transform: translateY(0) rotate(0deg) skewX(0deg) scale(1); } 15% { transform: translateY(-12px) rotate(-5deg) skewX(10deg) scale(1.15); } 30% { transform: translateY(7px) rotate(3deg) skewX(-6deg) scale(0.9); } 45% { transform: translateY(-10px) rotate(4deg) skewX(8deg) scale(1.1); } 60% { transform: translateY(8px) rotate(-2deg) skewX(-7deg) scale(1.05); } 75% { transform: translateY(-6px) rotate(3deg) skewX(5deg) scale(0.85); } 90% { transform: translateY(4px) rotate(-3deg) skewX(-4deg) scale(1.03); } }
+                .title-char-wavy { display: inline-block; animation: wavy-text-anim 0.9s ease-in-out infinite; }
+                @keyframes bounce-char-anim {0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-15px);} 60% {transform: translateY(-10px);}}
+                .title-char-bounce { display: inline-block; animation: bounce-char-anim 1.2s ease-in-out infinite; }
+                @keyframes spin-zoom-char-anim { 0%, 100% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(360deg) scale(1.5); } }
+                .title-char-spinzoom { display: inline-block; animation: spin-zoom-char-anim 1.5s linear infinite; }
+                @keyframes shake-char-anim { 0% { transform: translate(1px, 1px) rotate(0deg); } 10% { transform: translate(-1px, -2px) rotate(-1deg); } 20% { transform: translate(-3px, 0px) rotate(1deg); } 30% { transform: translate(3px, 2px) rotate(0deg); } 40% { transform: translate(1px, -1px) rotate(1deg); } 50% { transform: translate(-1px, 2px) rotate(-1deg); } 60% { transform: translate(-3px, 1px) rotate(0deg); } 70% { transform: translate(3px, 1px) rotate(-1deg); } 80% { transform: translate(-1px, -1px) rotate(1deg); } 90% { transform: translate(1px, 2px) rotate(0deg); } 100% { transform: translate(1px, -2px) rotate(-1deg); } }
+                .title-char-shake { display: inline-block; animation: shake-char-anim 0.5s linear infinite; }
+                .ascii-art-block { padding: 12px; margin: 18px auto; border: 4px dotted; overflow-x: auto; white-space: pre; font-family: 'MS PGothic', 'IPAMonaPGothic', 'Mona', monospace !important; line-height: 1.15; font-size: 9pt; text-align: left; display: inline-block; max-width: 100%; }
+                #generatedContent * { box-sizing: border-box !important; margin:0 !important; padding:0 !important; }
+                #generatedContent table, #generatedContent th, #generatedContent td { border-collapse: separate !important; border-spacing: ${getRandomInt(3,12)}px !important; caption-side: bottom !important; }
+                #generatedContent img { max-width: 100% !important; height: auto !important; display: block !important; margin: 12px auto !important; border: 6px solid yellow !important; }
+            </style>`;
+
+            let siteTitle = userTitle;
+            if (Math.random() < 0.98) siteTitle = getRandomElement(titlePrefixes) + siteTitle; // ほぼ確実に接頭辞
+            if (Math.random() < 0.98) siteTitle += getRandomElement(titleSuffixes); // ほぼ確実に接尾辞
+            
+            html += `<center style="margin-bottom:30px;">`;
+            const titleEffectType = getRandomInt(1,7); // タイトルエフェクト種類増加
+            if (titleEffectType <= 2) { // 既存の特殊タイトル
+                html += `<h1 style="font-size:${getRandomInt(40,100)}pt !important; line-height:1.5;">${makeAnimatedTitle(siteTitle)}</h1>`;
+            } else if (titleEffectType === 3) {
+                html += makeMarquee(siteTitle, getRandomElement(garishColorPairs).bg, getRandomElement(garishColorPairs).text);
+            } else if (titleEffectType === 4) {
+                html += `<h1 style="${getRandomUglyStyle(false, true)}font-size:${getRandomInt(45,90)}pt !important;">${makeBlinking(siteTitle)}</h1>`;
+            } else if (titleEffectType === 5) {
+                 html += `<h1 style="${getRandomUglyStyle(false, true)}font-size:${getRandomInt(45,90)}pt !important;">${makeRainbowText(siteTitle)}</h1>`;
+            } else if (titleEffectType === 6) {
+                html += `<h1 style="font-size:${getRandomInt(40,90)}pt !important; line-height:1.5; word-break:break-all;">${siteTitle.split('').map(char => `<span style="${getRandomUglyStyle(false, true)} display:inline-block !important; padding:0 4px !important; margin: 0 1px !important;">${char}</span>`).join('')}</h1>`;
+            } else { // AAタイトル
+                html += `<div style="padding:15px; border: 7px groove ${getRandomElement(garishColorPairs).text}; background-color:${getRandomElement(garishColorPairs).bg}; transform: rotate(${getRandomInt(-3,3)}deg);">${makeAsciiArtBlock()}</div><h2 style="${getRandomUglyStyle(false,true)}font-size:${getRandomInt(20,50)}pt !important;">${siteTitle}</h2>`;
+            }
+            html += `<p style="margin-top:25px;">${makeBlinkingIcon(getRandomElement(uglyIcons))} <img src="${getRandomElement(classicGifs)}" alt="Cool GIF" style="transform:rotate(${getRandomInt(-35,35)}deg) scale(${getRandomInt(6,14)/10}) skewX(${getRandomInt(-10,10)}deg) !important; display:inline-block !important; vertical-align:middle !important;"> ${makeBlinkingIcon(getRandomElement(uglyIcons))} <img src="${getRandomElement(classicGifs)}" alt="Another Cool GIF" style="transform:scaleX(-1) rotate(${getRandomInt(-35,35)}deg) scale(${getRandomInt(6,14)/10}) skewY(${getRandomInt(-10,10)}deg) !important; display:inline-block !important; vertical-align:middle !important;"> ${makeBlinkingIcon(getRandomElement(uglyIcons))}</p>`;
+            html += `</center><hr style="border: 12px ${getRandomElement(['dashed', 'dotted', 'double', 'groove', 'ridge', 'inset', 'outset'])} ${getRandomElement(garishColorPairs).bg} !important; margin: 35px 0 !important; transform: rotate(${getRandomInt(-2,2)}deg) !important;">`;
+
+            html += `<p style="${getRandomUglyStyle(true, true)}">ようこそ我が名は<strong style="color:red !important; font-size:220% !important; ${getRandomUglyStyle(false, true)}">${userTitle}</strong>！この電脳空間の深淵、いや、混沌の坩堝、終末の宴、そして絶望のカーニバルへ！ ${getRandomElement(kaomojiSymbols)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</p>`;
+            html += `<p style="${getRandomUglyStyle(true, true)}">${getRandomElement(verboseLeadIns)}このサイトの管理人、つまりこのワタクシ様が、血と汗と涙と鼻水とその他いろいろな体液と魂の欠片とSAN値を犠牲にして（大嘘乙アンド乙アンド乙）作り上げた、珠玉の（？）いや、魔境の、いや、神々の遊び場的、禁断のコンテンツをとくとご覧あれ！ ${getRandomElement(verboseTrailOuts)}</p>`;
+            if (Math.random() < 0.7) html += `<p style="${getRandomUglyStyle(true, true)}font-size:7pt !important;">${getRandomElement(pseudoBusinessJargon)} ${getRandomElement(kaomojiSymbols)} ${getRandomElement(chuunibyouPhrases)}</p>`;
+            if (Math.random() < 0.5) html += `<div style="text-align:center; margin:20px 0; padding: 5px; border: 3px dashed ${getRandomElement(garishColorPairs).text}; background-color:${getRandomElement(garishColorPairs).bg};">${makeAsciiArtBlock()}</div>`;
+            html += `<br><br>`;
+
+            const paragraphs = userContent.split('\n').filter(p => p.trim() !== '');
+            paragraphs.forEach((para, index) => {
+                let processedPara = para;
+                if (Math.random() < 0.85) { 
+                    processedPara = `${getRandomElement(verboseLeadIns)} ${processedPara} ${getRandomElement(verboseTrailOuts)}`;
+                }
+                if (Math.random() < 0.7) { 
+                    processedPara = `<strong style="font-size:150% !important; ${getRandomUglyStyle(false, true)}">【超絶最終禁断重要機密事項Ver.X】</strong> ${processedPara} <strong style="color: ${getRandomElement(garishColorPairs).text} !important; background-color: ${getRandomElement(garishColorPairs).bg} !important; padding:8px !important; border:5px solid yellow !important; display:inline-block !important; transform: rotate(${getRandomInt(-3,3)}deg) !important;">ここ、マジで宇宙の最終追試に出るからな！魂に刻み込んどけよ！ ${getRandomElement(oldNetSlang)} ${getRandomElement(kaomojiSymbols)} ${getRandomElement(chuunibyouPhrases)}</strong>`;
+                }
+                if (Math.random() < 0.6) { 
+                    processedPara = processedPara.split(' ').map(word => {
+                        if (Math.random() < 0.35) return `<span style="font-size:${getRandomInt(7,70)}pt !important; font-family:${getRandomElement(badFonts)} !important; color:${getRandomElement(garishColorPairs).text} !important; background-color:${getRandomElement(garishColorPairs).bg} !important; transform:rotate(${getRandomInt(-18,18)}deg) scale(${getRandomInt(4,20)/10}) skewX(${getRandomInt(-12,12)}deg) !important; display:inline-block !important; padding:0 5px !important; margin:0 4px !important; border: ${getRandomInt(1,4)}px ${getRandomElement(['dotted','dashed'])} ${getRandomElement(garishColorPairs).text} !important;">${word}</span>`;
+                        return word;
+                    }).join(' ');
+                }
+                if (Math.random() < 0.25) processedPara = `${getRandomElement(chuunibyouPhrases)} ${processedPara} ${getRandomElement(chuunibyouPhrases)}`; // 前後にも中二病
+
+
+                const displayType = getRandomInt(1,15); // AAとテーブルと中二病の確率調整
+                if (displayType <= 2 && para.length > 3) { 
+                     html += makeSpeechBubbleCSS(processedPara);
+                } else if (displayType <= 5) { 
+                     html += `<div style="text-align:center; margin: 25px 0; padding:10px; border: 5px ${getRandomElement(['dashed','dotted'])} ${getRandomElement(garishColorPairs).bg}; background-color:${getRandomElement(garishColorPairs).text};">${makeAsciiArtBlock()} <p style="${getRandomUglyStyle(true,true)}font-size:0.8em !important;">${processedPara.substring(0,getRandomInt(5,25))}... ${getRandomElement(chuunibyouPhrases)}</p></div>`;
+                } else if (displayType <= 7 && para.length > 10) { 
+                     html += `<br><table style="width:${getRandomInt(25,100)}% !important; margin:30px auto !important; ${getRandomUglyStyle(false, true)} transform: rotate(${getRandomInt(-2,2)}deg) skewX(${getRandomInt(-3,3)}deg) !important;"><caption><strong style="${getRandomUglyStyle(false, true)}font-size:2em !important;">${makeBlinking(getRandomElement(["謎の最終禁断データ表","極秘開示最終情報","今日の断末魔レクイエム"]))}</strong></caption><thead><tr><th style="${getRandomUglyStyle(false, true)}">${makeBlinking("情報Ω改")}</th><th style="${getRandomUglyStyle(false, true)}">${makeRainbowText("情報ΨNEO")}</th><th style="${getRandomUglyStyle(false, true)}">情報ΔZERO</th></tr></thead><tbody><tr><td style="${getRandomUglyStyle(true, true)}">${para.substring(0,getRandomInt(2,10))}... ${getRandomElement(kaomojiSymbols)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</td><td style="${getRandomUglyStyle(true, true)}">${getRandomElement(annotations)}</td><td style="${getRandomUglyStyle(true, true)}">${makeAsciiArtBlock()} ${getRandomElement(oldNetSlang)} ${getRandomElement(chuunibyouPhrases)}</td></tr></tbody></table>`;
+                } else if (displayType <= 9) { // 中二病フレーズ単体
+                    html += `<p style="${getRandomUglyStyle(false, true)} font-size:${getRandomInt(15,40)}pt !important; text-align:center; margin: 20px 0; padding:10px; border:3px solid ${getRandomElement(garishColorPairs).text}; background-color:${getRandomElement(garishColorPairs).bg};">${makeAnimatedTitle(getRandomElement(chuunibyouPhrases))}</p>`;
+                }
+                else { 
+                    html += `<div style="margin-bottom: 40px !important; padding:30px !important; border: 8px ${getRandomElement(['dotted', 'dashed', 'double', 'groove', 'ridge'])} ${getRandomElement(garishColorPairs).bg} !important; ${getRandomUglyStyle(true, true)} transform: rotate(${getRandomInt(-2,2)}deg) !important;">`;
+                    const words = processedPara.split(' ');
+                    let styledPara = words.map(word => {
+                        if (Math.random() < 0.2) return makeBlinking(word, getRandomUglyStyle(false, true));
+                        if (Math.random() < 0.15) return makeRainbowText(word);
+                        if (Math.random() < 0.1) return `<span style="display:inline-block !important; transform:rotate(${getRandomInt(-30,30)}deg) scale(${getRandomInt(4,20)/10}) skewY(${getRandomInt(-18,18)}deg) !important; font-family:${getRandomElement(badFonts)} !important; ${getRandomUglyStyle(false, true)}">${word}</span>`;
+                        if (Math.random() < 0.3) return `<strong style="font-size:${getRandomInt(7,70)}pt !important; color:${getRandomElement(garishColorPairs).text} !important; background-color:${getRandomElement(garishColorPairs).bg} !important; padding: 0 6px !important; margin: 0 3px !important; display:inline-block !important; border: ${getRandomInt(1,4)}px ${getRandomElement(['solid','dotted'])} ${getRandomElement(garishColorPairs).text} !important;">${word}</strong>`;
+                        return word;
+                    }).join(' ');
+                    html += `<p style="line-height:${getRandomInt(7,35)/10} !important; overflow-wrap: break-word !important; word-break: break-all !important;">${styledPara} ${Math.random() < 0.4 ? getRandomElement(kaomojiSymbols) : ''}  ${Math.random() < 0.15 ? makeBlinkingIcon(getRandomElement(uglyIcons)) : ''} ${Math.random() < 0.2 ? getRandomElement(chuunibyouPhrases) : ''}</p>`;
+                    if (Math.random() < 0.3) html += `<div style="text-align:center; margin-top:15px; padding: 5px; border: 2px dashed ${getRandomElement(garishColorPairs).text};">${makeAsciiArtBlock()}</div>`;
+                    html += `</div>`;
+                }
+
+                if (Math.random() < 0.95 && displayType > 2) { 
+                    html += `<span style="font-size: ${getRandomInt(1,12)}pt !important; color: ${getRandomElement(garishColorPairs).text} !important; background-color: ${getRandomElement(garishColorPairs).bg} !important; display:block !important; text-align:${getRandomElement(['left','center','right'])} !important; padding: 5px 10px !important; margin-top: -25px !important; margin-bottom:25px !important; transform: rotate(${getRandomInt(-8,8)}deg) skewX(${getRandomInt(-18,18)}deg) !important; border: 2px ${getRandomElement(['dotted','dashed'])} ${getRandomElement(garishColorPairs).text} !important;">${getRandomElement(annotations)} ${Math.random() < 0.5 ? getRandomElement(oldNetSlang) : ''} ${Math.random() < 0.3 ? getRandomElement(kaomojiSymbols) : ''} ${Math.random() < 0.2 ? getRandomElement(chuunibyouPhrases) : ''}</span>`;
+                }
+                if (Math.random() < 0.5) { 
+                    html += `<center><img src="${getRandomElement(placeholderImages)}" alt="謎の最終禁断画像" style="border: 15px ${getRandomElement(['solid','dotted','dashed','double','groove','ridge','inset','outset'])} ${getRandomElement(garishColorPairs).bg} !important; margin:30px 0 !important; transform: rotate(${getRandomInt(-25,25)}deg) scale(${getRandomInt(4,15)/10}) skewX(${getRandomInt(-15,15)}deg) !important; box-shadow: 12px 12px 25px ${getRandomElement(garishColorPairs).text}, 0 0 10px white !important;"></center>`;
+                }
+                if (Math.random() < 0.25) html += `<p style="${getRandomUglyStyle(true, true)}font-size:7pt !important;">${getRandomElement(pseudoBusinessJargon)} ${getRandomElement(kaomojiSymbols)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</p>`;
+
+                if (index < paragraphs.length -1) html += `<br><hr style="border-top: ${getRandomInt(6,15)}px ${getRandomElement(['dotted', 'dashed', 'double', 'groove', 'ridge', 'inset'])} ${getRandomElement(garishColorPairs).text} !important; margin: 25px 0 ${getRandomInt(25,45)}px 0 !important; height:${getRandomInt(10,25)}px !important; background-color:${getRandomElement(garishColorPairs).bg} !important; transform: skewX(${getRandomInt(-12,12)}deg) rotate(${getRandomInt(-2,2)}deg) !important;"><br>`;
+            });
+
+            html += `<hr style="border-top: 15px double ${getRandomElement(garishColorPairs).bg} !important; margin-top:60px !important;">`;
+            html += `<p style="${getRandomUglyStyle(false, true)}">どうだったかな？この<strong style="font-size:250% !important; ${getRandomUglyStyle(false, true)}" class="ugly-blink">${userTitle}</strong>のページは、君の脳髄と眼球と精神と魂に強烈かつ不可逆的で破壊的な何かを刻み込めたかな？ ${getRandomElement(kaomojiSymbols)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</p>`;
+            html += `<p style="font-family: '${getRandomElement(badFonts)}', cursive !important; font-size: ${getRandomInt(3,18)}pt !important; text-align:center !important; ${getRandomUglyStyle(true, true)}">${getRandomElement(verboseLeadIns)}またのお越しを、世界の果てか地獄の底か異次元の彼方か無間地獄から心よりお待ち申し上げておりますぞ！ ${getRandomElement(verboseTrailOuts)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(oldNetSlang)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</p>`;
+            if (Math.random() < 0.6) html += `<div style="text-align:center; margin: 25px 0; padding:10px; border:4px groove ${getRandomElement(garishColorPairs).text}; background-color:${getRandomElement(garishColorPairs).bg};">${makeAsciiArtBlock()}</div>`;
+
+            html += `<hr style="height:30px !important; background-image: linear-gradient(to right, ${getRandomElement(garishColorPairs).bg}, ${getRandomElement(garishColorPairs).text}, ${getRandomElement(garishColorPairs).bg}, ${getRandomElement(garishColorPairs).text}, ${getRandomElement(garishColorPairs).bg}, ${getRandomElement(garishColorPairs).text}, ${getRandomElement(garishColorPairs).bg}, ${getRandomElement(garishColorPairs).text}, ${getRandomElement(garishColorPairs).bg}) !important; border:none !important; margin: 40px 0 !important; transform: skewY(${getRandomInt(-3,3)}deg) !important;">`;
+            html += `<div style="text-align: center !important; ${getRandomUglyStyle(false, true)} padding: 10px !important;" class="${Math.random() < 0.5 ? 'ugly-rainbow-bg' : ''}">`;
+            html += `<p style="line-height:2.2 !important; font-size:0.7em !important;">アクセスカウンター: <img src="https://placehold.co/200x80/${getRandomElement(garishColorPairs).bg.substring(1)}/${getRandomElement(garishColorPairs).text.substring(1)}/?text=${getRandomInt(10000000,999999999)}&font=impact" alt="アクセスカウンター" style="display:inline-block !important; vertical-align:middle !important; border:4px solid red !important; transform: rotate(${getRandomInt(-5,5)}deg) !important;"> 人目のお客様だ！キリ番ゲッターはBBSに血染めのポエムと黒歴史をカキコ必須な！ ${makeBlinkingIcon("🎊")} ${makeBlinkingIcon("💯")} ${makeBlinkingIcon("💸")}</p>`;
+            html += `<p style="line-height:2.2 !important; font-size:0.7em !important;"><img src="${getRandomElement(classicGifs)}" alt="工事中" style="display:inline-block !important; vertical-align:middle !important; transform: scale(${getRandomInt(8,12)/10}) !important;"> このサイトは Netscape Navigator -1.0 及び Internet Explorer 0.0 で最適に表示されるようには全くこれっぽっちも微塵も輪廻転生しても作られていませんが、魂と気合と愛と勇気とSAN値で見てください。推奨環境はカオスと狂気と無秩序です。</p>`;
+            html += `<p style="font-size: 4pt !important; line-height:2 !important; word-break:break-all !important;">(C) 1XXX - ${new Date().getFullYear()} ${userTitle}の電脳秘密結社NEOアマゾネス最終聖戦黙示録RETURNS FOREVER. All rights maybe reserved, maybe not. Who cares? Don't sue me bro. If you can read this, you are too close to the abyss. This site is protected by ancient curse. ${getRandomElement(kaomojiSymbols)} ${getRandomElement(oldNetSlang)} ${getRandomElement(chuunibyouPhrases)}</p>`;
+            html += `<a href="#" style="${getRandomUglyStyle(false, true)}font-size:1.5em !important; display:inline-block; margin:5px; padding:5px; border:2px solid;">${makeBlinking("ゲストブックに魂の叫びと遺言と黒歴史を記帳！")}</a> | <a href="#" style="${getRandomUglyStyle(false, true)}font-size:1.5em !important; display:inline-block; margin:5px; padding:5px; border:2px solid;">${makeRainbowText("お友達リンク（絶滅確定種・保護対象外）")}</a> | <a href="#" style="${getRandomUglyStyle(false, true)}font-size:1.5em !important; display:inline-block; margin:5px; padding:5px; border:2px solid;">管理人にラブレター（届いたら奇跡、読まれたらもっと奇跡、返事が来たら世界の終わり）</a>`;
+            html += `</div>`;
+            
+            html += `</div>`;
+
+            outputArea.innerHTML = html;
+            downloadButton.style.display = 'block';
+        });
+
+    </script>
+</body>
+</html>
