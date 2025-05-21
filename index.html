@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【最終形態Ver.2.1】激ダサホームページメーカー</title>
+    <title>【最終形態Ver.2.2】激ダサホームページメーカー</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
     <style>
@@ -13,16 +13,16 @@
         /* 点滅アニメーション */
         @keyframes blink {
             0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
-            25% { opacity: 0.1; transform: scale(1.1) rotate(-2deg); } /* 少し抑えめに */
-            50% { opacity: 1; transform: scale(0.98) rotate(0deg); }
-            75% { opacity: 0.1; transform: scale(1.1) rotate(2deg); }
+            25% { opacity: 0.1; transform: scale(1.08) rotate(-1.5deg); } /* さらに少し抑えめに */
+            50% { opacity: 1; transform: scale(0.99) rotate(0deg); }
+            75% { opacity: 0.1; transform: scale(1.08) rotate(1.5deg); }
         }
         .ugly-blink {
-            animation: blink 1.0s linear infinite; /* ゆっくりに */
+            animation: blink 1.2s linear infinite; /* さらにゆっくりに */
         }
         .icon-blink {
             display: inline-block;
-            animation: blink 0.7s linear infinite alternate; /* ゆっくりに */
+            animation: blink 0.9s linear infinite alternate; /* さらにゆっくりに */
         }
 
         /* スクロール（マーキー）アニメーション */
@@ -32,120 +32,122 @@
             padding: 12px 0;
             margin: 18px 0;
             border: 8px ridge hotpink; 
-            transform: skewY(-2deg) rotate(0.5deg); /* 少し抑えめに */
+            transform: skewY(-1.5deg) rotate(0.3deg); /* さらに抑えめに */
         }
         .ugly-marquee-text {
             display: inline-block;
             padding-left: 100%;
-            animation: marquee-scroll 12s linear infinite; /* ゆっくりに */
+            animation: marquee-scroll 15s linear infinite; /* さらにゆっくりに */
             white-space: nowrap;
-            font-size: 28pt; 
+            font-size: 26pt; /* 少し小さく */
             font-weight: 900;
-            text-shadow: 3px 3px 0px lime, -3px -3px 0px magenta, 0 0 4px yellow; 
+            text-shadow: 2px 2px 0px lime, -2px -2px 0px magenta, 0 0 3px yellow; 
         }
         @keyframes marquee-scroll {
-            0%   { transform: translateX(50px) rotate(-2deg) skewX(-4deg); }
-            25%  { transform: translateX(-180%) rotate(0.5deg) skewX(1deg) scaleY(1.1); }
-            50%  { transform: translateX(-380%) rotate(2deg) skewX(4deg) scaleY(0.9); }
-            75%  { transform: translateX(-580%) rotate(-0.5deg) skewX(-1deg) scaleY(1.05); }
-            100% { transform: translateX(-780%) rotate(-2deg) skewX(-4deg); }
+            0%   { transform: translateX(40px) rotate(-1.5deg) skewX(-3deg); }
+            25%  { transform: translateX(-170%) rotate(0.3deg) skewX(0.8deg) scaleY(1.05); }
+            50%  { transform: translateX(-370%) rotate(1.5deg) skewX(3deg) scaleY(0.95); }
+            75%  { transform: translateX(-570%) rotate(-0.3deg) skewX(-0.8deg) scaleY(1.02); }
+            100% { transform: translateX(-770%) rotate(-1.5deg) skewX(-3deg); }
         }
 
         /* 虹色テキスト */
         .ugly-rainbow-text {
             background-image: linear-gradient(60deg, red,deeppink,orange,yellow,lime,springgreen,cyan,blue,darkviolet,magenta,red,deeppink,orange,yellow,lime,springgreen,cyan,blue,darkviolet,magenta);
-            background-size: 400% auto; /* 動きを少し抑える */
+            background-size: 350% auto; /* 動きをさらに抑える */
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             font-weight: 900; 
-            animation: rainbow-flow 2.0s linear infinite; /* ゆっくりに */
+            animation: rainbow-flow 2.5s linear infinite; /* さらにゆっくりに */
         }
         @keyframes rainbow-flow {
             0% { background-position: 0% center; }
-            50% { background-position: 200% center; }
-            100% { background-position: 400% center; }
+            50% { background-position: 175% center; } /* 半分に */
+            100% { background-position: 350% center; }
         }
 
         /* タイトルアニメーション各種 */
         @keyframes wavy-text-anim { 
-            0%, 100% { transform: translateY(0) rotate(0deg) skewX(0deg) scale(1); } 15% { transform: translateY(-10px) rotate(-3deg) skewX(7deg) scale(1.1); } 30% { transform: translateY(5px) rotate(1.5deg) skewX(-4deg) scale(0.95); } 45% { transform: translateY(-8px) rotate(2.5deg) skewX(5deg) scale(1.05); } 60% { transform: translateY(6px) rotate(-1deg) skewX(-5deg) scale(1.02); } 75% { transform: translateY(-4px) rotate(1.5deg) skewX(3deg) scale(0.9); } 90% { transform: translateY(3px) rotate(-1.5deg) skewX(-3deg) scale(1.01); }
+            0%, 100% { transform: translateY(0) rotate(0deg) skewX(0deg) scale(1); } 15% { transform: translateY(-8px) rotate(-2deg) skewX(5deg) scale(1.08); } 30% { transform: translateY(4px) rotate(1deg) skewX(-3deg) scale(0.97); } 45% { transform: translateY(-6px) rotate(2deg) skewX(4deg) scale(1.03); } 60% { transform: translateY(5px) rotate(-0.5deg) skewX(-4deg) scale(1.01); } 75% { transform: translateY(-3px) rotate(1deg) skewX(2deg) scale(0.93); } 90% { transform: translateY(2px) rotate(-1deg) skewX(-2deg) scale(1.005); }
         }
-        .title-char-wavy { display: inline-block; animation: wavy-text-anim 1.8s ease-in-out infinite; } /* ゆっくりに */
+        .title-char-wavy { display: inline-block; animation: wavy-text-anim 2.2s ease-in-out infinite; } /* さらにゆっくりに */
 
         @keyframes bounce-char-anim { 
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-12px);} 60% {transform: translateY(-8px);}
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-7px);}
         }
-        .title-char-bounce { display: inline-block; animation: bounce-char-anim 2.0s ease-in-out infinite; } /* ゆっくりに */
+        .title-char-bounce { display: inline-block; animation: bounce-char-anim 2.5s ease-in-out infinite; } /* さらにゆっくりに */
 
         @keyframes spin-zoom-char-anim { 
-            0%, 100% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(360deg) scale(1.3); } /* 拡大率少し抑える */
+            0%, 100% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(360deg) scale(1.25); } 
         }
-        .title-char-spinzoom { display: inline-block; animation: spin-zoom-char-anim 2.5s linear infinite; } /* ゆっくりに */
+        .title-char-spinzoom { display: inline-block; animation: spin-zoom-char-anim 3.0s linear infinite; } /* さらにゆっくりに */
         
         @keyframes shake-char-anim { 
-             0% { transform: translate(1px, 1px) rotate(0deg); } 10% { transform: translate(-1px, -1px) rotate(-0.5deg); } 20% { transform: translate(-2px, 0px) rotate(0.5deg); } 30% { transform: translate(2px, 1px) rotate(0deg); } 40% { transform: translate(1px, -1px) rotate(0.5deg); } 50% { transform: translate(-1px, 1px) rotate(-0.5deg); } 60% { transform: translate(-2px, 1px) rotate(0deg); } 70% { transform: translate(2px, 0px) rotate(-0.5deg); } 80% { transform: translate(-1px, -1px) rotate(0.5deg); } 90% { transform: translate(1px, 1px) rotate(0deg); } 100% { transform: translate(1px, -1px) rotate(-0.5deg); }
+             0% { transform: translate(0.5px, 0.5px) rotate(0deg); } 10% { transform: translate(-0.5px, -1px) rotate(-0.3deg); } 20% { transform: translate(-1.5px, 0px) rotate(0.3deg); } 30% { transform: translate(1.5px, 1px) rotate(0deg); } 40% { transform: translate(0.5px, -0.5px) rotate(0.3deg); } 50% { transform: translate(-0.5px, 1px) rotate(-0.3deg); } 60% { transform: translate(-1.5px, 0.5px) rotate(0deg); } 70% { transform: translate(1.5px, 0px) rotate(-0.3deg); } 80% { transform: translate(-0.5px, -0.5px) rotate(0.3deg); } 90% { transform: translate(0.5px, 1px) rotate(0deg); } 100% { transform: translate(0.5px, -1px) rotate(-0.3deg); }
         }
-        .title-char-shake { display: inline-block; animation: shake-char-anim 1.2s linear infinite; } /* ゆっくりに */
-
+        .title-char-shake { display: inline-block; animation: shake-char-anim 1.5s linear infinite; } /* さらにゆっくりに */
 
         /* ダサいモーダル */
         .ugly-modal {
             position: fixed; top: 50%; left: 50%; 
-            transform: translate(-50%, -50%) rotate(1deg) scale(1); /* 控えめに */
-            padding: 25px; /* 縮小 */
-            border: 10px outset lime; /* 少し細く */
+            transform: translate(-50%, -50%) rotate(0.5deg) scale(1); 
+            padding: 20px; /* さらに縮小 */
+            border: 8px outset lime; 
             z-index: 30000; text-align: center; 
-            box-shadow: 0 0 30px 10px rgba(255,0,0,0.7); /* 少し控えめに */
+            box-shadow: 0 0 25px 8px rgba(255,0,0,0.6); 
             display: none; 
-            min-width: 350px; /* 縮小 */
-            max-width: 90vw; /* はみ出し防止 */
+            min-width: 320px; /* さらに縮小 */
+            max-width: 85vw; 
         }
-        .ugly-modal h3 { font-size: 2.5em; margin-bottom: 20px; } /* 縮小 */
-        .ugly-modal p { margin-bottom: 20px; font-size: 1.2em; line-height: 1.5; } /* 縮小 */
+        .ugly-modal h3 { font-size: 2.0em; margin-bottom: 15px; } /* さらに縮小 */
+        .ugly-modal p { margin-bottom: 15px; font-size: 1.1em; line-height: 1.4; } /* さらに縮小 */
         .ugly-modal button { 
-            padding: 12px 25px; /* 縮小 */
-            border: 8px groove cyan; /* 少し細く */
+            padding: 10px 20px; /* さらに縮小 */
+            border: 7px groove cyan; 
             cursor: grabbing; font-weight: 900; 
-            transform: skewX(-10deg) rotate(-1deg) scale(1); /* 控えめに */
+            transform: skewX(-8deg) rotate(-0.5deg) scale(1); 
         }
         
         #outputArea { border: 15px groove fuchsia; padding: 35px; margin-top: 40px; min-height: 500px; background-color: #A0A0A0; overflow: hidden; position: relative; }
 
         .speech-bubble { position: relative; padding: 30px; margin: 2.5em 0 4.5em; border: 6px solid black; border-radius: 25px; display: inline-block; max-width: 99%; }
 
-        .ugly-rainbow-bg { background: linear-gradient(170deg, red,darkorange,gold,yellow,lime,forestgreen,springgreen,cyan,deepskyblue,blue,darkviolet,purple,magenta,deeppink,red,darkorange,gold,yellow,lime,forestgreen,springgreen,cyan,deepskyblue,blue,darkviolet,purple,magenta,deeppink); animation: rainbow-bg-flow 3.0s ease infinite; background-size: 800% 800%; } /* ゆっくりに */
+        .ugly-rainbow-bg { background: linear-gradient(170deg, red,darkorange,gold,yellow,lime,forestgreen,springgreen,cyan,deepskyblue,blue,darkviolet,purple,magenta,deeppink,red,darkorange,gold,yellow,lime,forestgreen,springgreen,cyan,deepskyblue,blue,darkviolet,purple,magenta,deeppink); animation: rainbow-bg-flow 3.5s ease infinite; background-size: 800% 800%; } /* さらにゆっくりに */
         @keyframes rainbow-bg-flow { 0%{background-position:0% 95%} 50%{background-position:100% 5%} 100%{background-position:0% 95%} }
         
         #downloadButton { margin-top: 30px; padding: 15px 30px; font-size: 1.8em; font-weight: 900; border: 8px outset #FF4500; background-image: linear-gradient(to bottom, #FFA500, #FF0000); color: white; text-shadow: 3px 3px 2px black, 0 0 10px yellow; border-radius: 20px; cursor: help; display: block; margin-left: auto; margin-right: auto; width: fit-content; transform: rotate(-1deg) skewX(2deg); }
-        #downloadButton:hover { transform: scale(1.1) rotate(2deg) skewX(-5deg); box-shadow: 0 0 30px #FFFF00, 0 0 15px #00FF00; }
+        #downloadButton:hover { transform: scale(1.1) rotate(1deg) skewX(-3deg); box-shadow: 0 0 25px #FFFF00, 0 0 12px #00FF00; }
 
         .ascii-art-block { padding: 12px; margin: 18px auto; border: 4px dotted; overflow-x: auto; white-space: pre; font-family: 'MS PGothic', 'IPAMonaPGothic', 'Mona', monospace !important; line-height: 1.15; font-size: 9pt; text-align: left; display: inline-block; max-width: 100%; }
     </style>
 </head>
 <body class="bg-gray-500 p-4 md:p-8">
-    <div class="container mx-auto max-w-7xl bg-white shadow-xl rounded-4xl p-12 border-12 border-dashed border-blue-700 transform -rotate-1">
-        <header class="text-center mb-20">
+    <div class="container mx-auto max-w-7xl bg-white shadow-xl rounded-4xl p-12 border-12 border-dashed border-blue-700 transform -rotate-0.5"> <header class="text-center mb-20">
             <h1 id="mainTitleContainer" class="text-8xl font-black" style="font-family: 'Impact', fantasy; line-height: 1.2;"></h1>
-            <p class="text-black mt-6 text-3xl">あなたのホームページを、<strong class="ugly-rainbow-text ugly-blink" style="font-size:1.8em; display: inline-block; padding: 8px; border: 4px dashed red; background-color:yellow;">銀河級の「ダサさ」</strong>で再構築し、<span class="icon-blink">☣️</span><span class="icon-blink">☢️</span><span class="icon-blink">📛</span><strong class="ugly-rainbow-text" style="text-shadow: 2px 2px black;">爆誕</strong>させます！</p>
+            <p class="text-black mt-6 text-3xl">あなたのホームページを、<strong class="ugly-rainbow-text ugly-blink" style="font-size:1.8em; display: inline-block; padding: 8px; border: 4px dashed red; background-color:yellow;">銀河級の「ダサさ」</strong>で再構築し、<span class="icon-blink">☣️</span><span class="icon-blink">☢️</span><span class="icon-blink">📛</span><strong class="ugly-rainbow-text" style="text-shadow: 2px 2px black;">いい感じにダサく</strong>します！</p>
         </header>
 
-        <div class="input-section mb-16 p-10 border-10 border-double border-green-600 rounded-2xl bg-orange-100 transform rotate-1 skew-x-0.5"> <div class="mb-10">
+        <div class="input-section mb-16 p-10 border-10 border-double border-green-600 rounded-2xl bg-orange-100 transform rotate-0.5 skew-x-0.2"> 
+            <div class="mb-10">
                 <label for="pageTitle" class="block text-4xl font-black text-red-700 mb-4 transform -rotate-1">ホームページのタイトル<span class="text-blue-800 font-black text-5xl ugly-blink">*</span></label>
-                <input type="text" id="pageTitle" class="w-full p-6 border-8 border-yellow-600 rounded-3xl focus:ring-pink-600 focus:border-pink-600 text-3xl placeholder-gray-500" placeholder="例：山田太郎・ザ・デストロイヤー～終末幻想黙示録・オブ・サイバー電脳魔界大戦～">
+                <input type="text" id="pageTitle" class="w-full p-6 border-8 border-yellow-600 rounded-3xl focus:ring-pink-600 focus:border-pink-600 text-3xl placeholder-gray-500" placeholder="例：山田ポチのイケてる（？）秘密基地">
             </div>
             <div class="mb-10">
                 <label for="pageContent" class="block text-4xl font-black text-purple-700 mb-4 transform -rotate-1">ホームページの内容<span class="text-green-800 font-black text-5xl ugly-blink">*</span></label>
-                <textarea id="pageContent" rows="18" class="w-full p-6 border-8 border-cyan-600 rounded-3xl focus:ring-orange-600 focus:border-orange-600 text-3xl placeholder-gray-500" placeholder="例：ここはワイの超絶怒涛百花繚乱魑魅魍魎阿鼻叫喚の趣味とか日常とか宇宙の真理とか昨日の晩飯とか黒歴史とかを赤裸々に記録するページやで！ゆっくりしていってくれたまへよって言ってるだろうがオイコラァァアア！！！刮目せよ！そして見にくさを堪能しろ！"></textarea>
+                <textarea id="pageContent" rows="18" class="w-full p-6 border-8 border-cyan-600 rounded-3xl focus:ring-orange-600 focus:border-orange-600 text-3xl placeholder-gray-500" placeholder="例：ここは僕の趣味とか日常とか、ちょっとイタいポエムとかを記録するページだよ！ゆっくり見ていってね！見にくさも楽しんでくれると嬉しいな！"></textarea>
             </div>
-            <button id="generateButton" class="w-full bg-gradient-to-tr from-pink-400 via-purple-600 to-blue-700 hover:from-pink-500 hover:via-purple-700 hover:to-blue-800 text-yellow-300 font-black py-7 px-14 rounded-full text-5xl shadow-2xl transform hover:scale-120 hover:rotate-1 hover:skew-y-1 transition-all duration-200 border-4 border-white"> <span style="font-family: 'HG創英角ポップ体', cursive;" class="icon-blink">🔱</span> 激ダササイトを錬成！ <span style="font-family: 'HG創英角ポップ体', cursive;" class="icon-blink">🔮</span>
+            <button id="generateButton" class="w-full bg-gradient-to-tr from-pink-400 via-purple-600 to-blue-700 hover:from-pink-500 hover:via-purple-700 hover:to-blue-800 text-yellow-300 font-black py-7 px-14 rounded-full text-5xl shadow-2xl transform hover:scale-110 hover:rotate-0.5 hover:skew-y-0.5 transition-all duration-200 border-4 border-white"> 
+                <span style="font-family: 'HG創英角ポップ体', cursive;" class="icon-blink">🔱</span> 激ダササイトを錬成！ <span style="font-family: 'HG創英角ポップ体', cursive;" class="icon-blink">🔮</span>
             </button>
         </div>
 
-        <hr class="my-20 border-t-12 border-black border-double transform rotate-0.5"> <h2 class="text-6xl font-black text-center text-red-800 mb-12 transform -rotate-1">
-            <span class="ugly-rainbow-text ugly-blink">【閲覧注意】</span>生成結果プレビュー<span class="ugly-rainbow-text ugly-blink">【ダサさ爆発】</span>
+        <hr class="my-20 border-t-12 border-black border-double transform rotate-0.2"> 
+        <h2 class="text-6xl font-black text-center text-red-800 mb-12 transform -rotate-1">
+            <span class="ugly-rainbow-text ugly-blink">【閲覧推奨？】</span>生成結果プレビュー<span class="ugly-rainbow-text ugly-blink">【ダサさ満開】</span>
         </h2>
-        <div id="outputArea" class="bg-gray-400 p-10 rounded-3xl shadow-inner transform rotate-0.5"> <p class="text-black text-center text-3xl">ここに想像と理解と常識を超越した、ダサさと見にくさを極めたホームページが顕現します。</p>
+        <div id="outputArea" class="bg-gray-400 p-10 rounded-3xl shadow-inner transform rotate-0.2"> 
+            <p class="text-black text-center text-3xl">ここに、ダサさと見にくさを追求したホームページが表示されます。お楽しみに！</p>
         </div>
         <button id="downloadButton" style="display:none;">この激ダサHTMLをダウンロード！</button>
     </div>
@@ -153,7 +155,8 @@
     <div id="uglyModal" class="ugly-modal">
         <h3 id="modalTitle">タイトル</h3>
         <p id="modalMessage">メッセージ</p>
-        <img id="modalGif" src="" alt="GIF" style="width:100px; height:100px; margin: 0 auto 20px auto; border: 5px groove yellow;"> <div id="modalIcons" class="mb-4"></div>
+        <img id="modalGif" src="" alt="GIF" style="width:80px; height:80px; margin: 0 auto 15px auto; border: 4px groove yellow;"> 
+        <div id="modalIcons" class="mb-3"></div>
         <button id="closeModalButton">閉じるのだ！</button>
     </div>
 
@@ -161,10 +164,10 @@
         // Tone.jsのシンセサイザーとメロディ定義
         let synth;
         const melodies = [
-            { notes: ['C4', 'E4', 'G4', 'C5', 'G4', 'E4', 'C4'], durations: ['4n', '4n', '4n', '2n', '4n', '4n', '2n'], tempo: 100 }, // テンポ少し遅く
-            { notes: ['F3', 'A3', 'C4', 'F4', 'A3', 'F4', 'C4', 'A3'], durations: ['8n', '8n', '8n', '8n', '4n', '4n', '4n', '2n'], tempo: 90 }, // テンポ少し遅く
-            { notes: ['G2', 'D3', 'G3', 'B3', 'D4', 'G3', 'D3', 'G2'], durations: ['2n', '4n', '4n', '4n', '2n', '4n', '4n', '1n'], tempo: 70 }, // テンポ少し遅く
-            { notes: ['C3', 'E3', 'G3', 'C4', 'E4', 'G4', 'C5', 'G4', 'E4', 'C4', 'G3', 'E3'], durations: '8n', tempo: 120 } // テンポ少し遅く
+            { notes: ['C4', 'E4', 'G4', 'C5', 'G4', 'E4', 'C4'], durations: ['4n', '4n', '4n', '2n', '4n', '4n', '2n'], tempo: 100 }, 
+            { notes: ['F3', 'A3', 'C4', 'F4', 'A3', 'F4', 'C4', 'A3'], durations: ['8n', '8n', '8n', '8n', '4n', '4n', '4n', '2n'], tempo: 90 }, 
+            { notes: ['G2', 'D3', 'G3', 'B3', 'D4', 'G3', 'D3', 'G2'], durations: ['2n', '4n', '4n', '4n', '2n', '4n', '4n', '1n'], tempo: 70 }, 
+            { notes: ['C3', 'E3', 'G3', 'C4', 'E4', 'G4', 'C5', 'G4', 'E4', 'C4', 'G3', 'E3'], durations: '8n', tempo: 120 } 
         ];
         let currentMelody;
         let part;
@@ -176,8 +179,8 @@
             if (!synth) {
                 synth = new Tone.PolySynth(Tone.Synth, {
                     oscillator: { type: getRandomElement(['triangle', 'sawtooth', 'square', 'pulse']) }, 
-                    envelope: { attack: 0.02, decay: 0.3, sustain: 0.15, release: 0.4 }, // 少し長めに
-                    volume: -18 // さらに少し小さめ
+                    envelope: { attack: 0.02, decay: 0.3, sustain: 0.15, release: 0.4 }, 
+                    volume: -18 
                 }).toDestination();
             }
             if (part) {
@@ -207,8 +210,6 @@
             Tone.Transport.start();
         }
 
-
-        // Helper functions
         const getRandomElement = (arr) => arr[Math.floor(Math.random() * arr.length)];
         const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -223,23 +224,23 @@
         ];
         const badFonts = ['Comic Sans MS', 'Papyrus', 'Impact', 'Times New Roman', 'Courier New', 'Arial Black', 'MS Mincho', 'MS Gothic', 'Verdana', 'Brush Script MT', 'Hobo Std', 'Curlz MT', 'Wingdings', 'Webdings', 'Zapf Dingbats', 'HG創英角ポップ体', 'HG丸ゴシックM-PRO', 'System', 'Monaco', 'IPAMonaPGothic', 'Mona', 'DFPOPBody-W12'];
         const annotations = [ 
-             "※個人の感想であり効果を保証するものではありませんし、そもそも何の効果もありません。いいね？", "※これはフィクションであり実在の人物・団体・宇宙人・神々とは一切関係ありません。誓って！",
-            "※イメージです。実際の見え方とは著しく、かつ絶望的に異なる場合があります。というか絶対違います。", "※当社比9999%UP！（昨日の自分比）（当社は一人株式会社）（社長兼平社員兼お茶汲み）", "（大草原不可避どころか大気圏突入レベル）", "www乙カレー様でしたwwwそして伝説へ…www", "ｷﾀ━━━━ヽ(∀ﾟ )人(ﾟ∀ﾟ)人( ﾟ∀)人(∀ﾟ )人(ﾟ∀ﾟ)人( ﾟ∀)ﾉ━━━━!!!!",
-            "※念のため、いや、宇宙の法則にかけて申し上げておきますが、これはジョークのつもりです。スベってたらゴメンナサイ。土下座します。orz", "※あくまで個人の見解であり、銀河連邦及び異次元監視機構の公式見解ではありませんので悪しからずご了承くださいませ候ふ。", "※読みにくくてゴメンナサイ（心から謝罪）…でもやめない！むしろ加速するッ！",
-            "※よい子は絶対にマネしないでください。悪い子もダメです。大人は…自己責任でどうぞ（ニヤリ）", "※画面から10メートル離れて、サングラスをかけ、薄目で見てください。それでもダメなら諦めてください。あなたの負けです。", "※これは詩（ポエム）です。異論は五七五で語ってください。返歌します（たぶん）",
-            "※この記事には多大なる誇張と捏造と妄想と希望的観測と電波と愛と勇気と友情が含まれています。", "※信じるか信じないかはアナタ次第です！…と言っておけば許されると思っているフシがある。反省はしていない。", "※この先、自己責任でお願いします。クレームは受け付けません（キリッ）異議申し立ては三途の川で聞こう。",
-            "※この文章はフィクションであり、登場する単語・表現は全てランダム生成です（大嘘）", "※この注釈を読むヒマがあったら本文を（読まなくていいけど）読め！", "※警告：この注釈はあなたのSAN値を著しく低下させる可能性があります。"
+            "※個人の感想です。", "※これはフィクションのつもりです。",
+            "※イメージなので、実際とは異なるかも。", "※当社比！（何の？）", "（笑）", "www", "（たぶん）",
+            "※念のため言っておきますが、ジョークですよ。", "※あくまで個人の見解です。", "※読みにくかったらゴメンナサイ！でも、それが味！",
+            "※マネしないでね！", "※画面から少し離れて見てね。", "※これはポエムなんです。",
+            "※この記事には、たくさんの誇張と妄想と希望的観測が含まれてるかも。", "※信じるか信じないかはあなた次第！（古）", "※自己責任で楽しんでね！クレームは受け付けません（笑）",
+            "※この文章はランダム生成です（たぶん本当）", "※注釈を読むより本文を楽しんで！", "※この注釈はオマケです。"
         ];
         const verboseLeadIns = [ 
-            "さて、諸君！ここで刮目し、そして平伏し、さらに靴を舐めよ！この驚愕の宇宙的真実に… ", "つまりだ、要約するとだな…いや、やっぱり超長々と、かつ回りくどく説明させてもらうぞ！覚悟はいいか！？刮目せよ！ ", "別の角度から、いや、いっそ異次元の、さらに高次元の視点から言わせていただくならばだな…聞くがいい！ ",
-            "驚天動地！天変地異！空前絶後！そして未来永劫！の超絶弩級情報が今、まさに、この瞬間に解禁されるのだ！ ", "前代未聞！未来永劫語り継がれるであろう（と勝手に確信している）この神託を聞け！心して聞くのだぞ！ ", "声をMAXボリュームにして、いや、地球全土に響き渡るほどの拡声器を使って言いたいのは、この点だ！刮目せよ！そして崇めよ！ "
+            "さて、諸君！ここで注目してくれたまえ！この驚きの事実に… ", "つまりだ、要するにだな…いや、やっぱり詳しく説明しよう！刮目せよ！ ", "別の角度から、いや、いっそ斬新な視点から言わせてもらうならばだな…聞いてくれ！ ",
+            "驚天動地！空前絶後！の（かもしれない）情報が今、解禁される！ ", "前代未聞！（だといいな）この話を聞いてくれ！心して聞くように！ ", "声を大にして言いたいのは、この点だ！注目だ！そして楽しんでくれ！ "
         ];
         const verboseTrailOuts = [ 
-            "…というわけなのだよ、ワトソン君。いや、君は誰だね？まあいい、我が弟子にしてやろう（上から目線）。", "…ご理解いただけただろうか？（超絶圧強め）ダメならもう一周、いや、百周読んでこい！話はそれからだ！", "…なのであります！異論は一切認めん！断固として、金輪際、未来永劫認めんぞ！分かったかコンチクショー！",
-            "…と、まあそういう複雑怪奇にして摩訶不思議、かつ意味不明なカラクリなわけですわ。おほほほほ。理解できなくてもOK牧場！", "…お分かりかな？フフフ…分からぬなら、分かるまで踊り狂え！そして歌え！ラララ～♪", "…今日のところはこれくらいで勘弁してやろう。感謝の言葉を述べ、五体投地するがよい！フハハハ！"
+            "…というわけなのだよ、友よ。まあいい、我が同士（自称）にしてやろう。", "…ご理解いただけただろうか？ダメならもう一周読んでみて！", "…なのであります！異論は…あるかもしれないけど、まあいいじゃないか！",
+            "…と、まあそういう複雑そうで単純なカラクリなわけですわ。おほほ。理解できなくてもOK！", "…お分かりかな？フフフ…分からぬなら、それがまた一興！", "…今日のところはこれくらいにしておこう。楽しんでくれたまえ！"
         ];
-        const titlePrefixes = ["【超弩級伝説最終章Ver.Ω】", "★銀河系最凶暗黒魔導卿★", "≪全宇宙震撼カタストロフィ・ゼロ≫", "☆禁断黙示録：創世破壊編☆", "【世紀末覇王最終血戦黙示録号外】", "◆◇◆◇◆◇終焉と創生の輪舞曲◇◆◇◆◇◆", "†黙示録†ジ・エンド・オブ・エタニティ†", "卍極秘解放最終禁断形態卍", "【閲覧禁止異次元区域】", "【神々の黄昏ラグナロク】"];
-        const titleSuffixes = ["！！！１１１１壱壱壱之終焉と再生", "ｗｗｗｗｗ草不可避どころか銀河が森ｗｗｗ", "（極秘中の極秘最終暗号禁断情報）", "TURBO Z mkIII HYPER OMEGA EDITION FINAL VER. Rev.2", "シン・20XX NEO GENESIS EVANGELION:|| THE END OF THE END", "REVOLUTION X FINAL IMPACT APOCALYPSE NOW AND FOREVER", "～終末へのプレリュード・そして伝説は繰り返す～", "Ver.Ω (アルティメット・オメガ・デストロイ・リバース)", "（嘘ぴょーん…ではなかったのだ！マジで！）", "～そして、神話は語り継がれる（嘘）～"];
+        const titlePrefixes = ["【衝撃】", "★激安★", "≪必見≫", "☆驚愕の事実☆", "【号外】", "◆◇◆", "†伝説の†", "卍極秘卍", "【注目】"];
+        const titleSuffixes = ["！！！", "ｗｗｗ", "（秘）", "DX", "202X", "RETURNS", "～新たなる序章～", "Ver.Final (仮)", "（かもね）"];
         const classicGifs = [ 
             "https://placehold.co/80x80/FFFF00/000000/?text=超絶神NEW!",
             "https://placehold.co/140x60/0000FF/FFFFFF/?text=絶賛焦土炎上中だぜ！",
@@ -252,16 +253,16 @@
             "https://placehold.co/140x200/FFFF00/0000FF/?text=謎の超究極オーパーツYPrime",
             "https://placehold.co/120x120/000000/FFFFFF/?text=深淵の闇画像"
         ];
-        const uglyIcons = ['✨', '🌟', '💫', '💥', '🔥', '🚀', '🎉', '🎊', '💯', '💔', '💣', '👾', '👽', '💀', '😂', '💩', '☢️', '☣️', '�', '😱', '🌌', '🌠', '🪐', '🛸', '💸', '💎', '🌀', '☄️', '🔮', '🧿', '📛', '🔱', '⚜️', '🔔'];
+        const uglyIcons = ['✨', '🌟', '💫', '💥', '🔥', '🚀', '🎉', '🎊', '💯', '💔', '💣', '👾', '👽', '💀', '😂', '💩', '☢️', '☣️', '🤯', '😱', '🌌', '🌠', '🪐', '🛸', '💸', '💎', '🌀', '☄️', '🔮', '🧿', '📛', '�', '⚜️', '🔔'];
         const oldNetSlang = [ 
-            "ちょｗｗｗおまｗｗｗ待てｗｗｗ", "乙！乙でした！サーセンｗｗｗ", "ktkr！ｷﾀｺﾚ！", "orz orz orz", "GJ!ネ申GJ!", "kwsk！はよ！", "wktkが止まらないｗｗｗ", "うp汁！はよ！", "鯖落ちフラグｗｗｗ", "禿同！激しく禿同！", "リア充爆発しろ！マジで！", "m9(^Д^)ﾌﾟｷﾞｬｰｯｻﾞﾏｧｗｗｗ", "キボンヌ！くれくれ！", "逝ってよし！むしろ逝け！", "ネカマ乙！釣られクマーｗｗｗ", "香具師乙", "詳細キボンヌ", ">>1乙"
+            "ちょｗｗｗ", "乙！", "ktkr", "orz", "GJ!", "kwsk", "wktk", "うp", "鯖落ち？", "禿同かも", "リア充いいな！", "m9(^Д^)ﾌﾟｷﾞｬｰ（冗談）", "キボンヌ！", "逝ってよし！（愛を込めて）", "ネカマ注意？", "香具師さん乙", "詳細キボンヌ！", ">>1乙です！"
         ];
         const pseudoBusinessJargon = [ 
-            "このクリティカルなイシューに対しては、まずKGI・KPIを再定義し、マルチステークホルダー間のエンゲージメントを最大化する形でコンセンサス形成をプライオリティ・ワンに置くべきです。その上で、アジャイルかつリーンなPDCAサイクルを高速で回し、破壊的イノベーションによるシナジー効果を最大化するソリューションを市場にローンチし、ゲームチェンジャーとなる必要がありますね。エビデンス？そんなものは後から作る！",
-            "サステナビリティとダイバーシティを考慮したデジタルトランスフォーメーション(DX)およびグリーントランスフォーメーション(GX)は、顧客エンゲージメントを高め、コアコンピタンスをピボットさせ、ブルーオーシャンを創出する上で不可欠なパラダイムシフトと言えるでしょう。リソースを最適にアロケーションし、破壊的かつイノベーティブなエコシステムを構築し、業界のデファクトスタンダードを握ることが急務です。予算？気合で何とかしろ！",
-            "当社のバリュープロポジションは、ビッグデータを活用したAIによる顧客インサイトの深掘りに基づいたペルソナ設定と、オムニチャネルでのシームレスなカスタマージャーニーの最適化にあります。これにより、LTVとコンバージョンレートを飛躍的に向上させ、最終的にはROIの無限大化にコミットします。エビデンスベースでリスケし、全方位ウィンウィンな関係を目指しましょう。KPI？雰囲気で！"
+            "このイシューに対しては、まずKPIを再定義し、ステークホルダー間のコンセンサス形成をプライオリティに置くべきです。その上で、アジャイルなPDCAサイクルを回し、シナジー効果を最大化するソリューションをローンチする必要がありますね。…なんてね！",
+            "サステナビリティを考慮したデジタルトランスフォーメーション(DX)は、エンゲージメントを高め、コアコンピタンスを強化する上で不可欠なパラダイムシフトと言えるでしょう。リソースを最適にアロケーションし、イノベーティブなエコシステムを構築することが急務です。…たぶん！",
+            "当社のバリュープロポジションは、顧客インサイトに基づいたペルソナ設定とカスタマージャーニーの最適化にあります。これにより、コンバージョンレートを向上させ、最終的にはROIの最大化にコミットします。エビデンスベースでリスケし、ウィンウィンな関係を目指しましょう。…なんちゃって！"
         ];
-        const kaomojiSymbols = ["(^_^;)", "m(_ _)m", "orz", "(´；ω；｀)ﾌﾞﾜｯ", "Σ(ﾟДﾟ；≡；ﾟдﾟ)", "ｷﾀ━━━━(ﾟ∀ﾟ)━━━━!!", "( ´ー｀)ﾌｩｰ．．．（遠い目）", "ヽ(`Д´)ﾉｳﾜｧｧｧﾝ!!", "†卍【破壊神】卍†", "☆彡(ﾉﾟ▽ﾟ)ﾉ☆彡ﾍ(ﾟ▽ﾟﾍ)☆彡(ﾉﾟ▽ﾟ)ﾉ☆彡ｳｪｰﾌﾞ!!", "＿|￣|○⇒＿|＼○＿⇒＿/＼○＿⇒＿__＿○＿ｺﾞﾒﾝﾅｻｲ!!", "（　＾ω＾）・・・おっおっおっ", "（ ´∀｀）つ§　どうぞ", "（・∀・）ﾆﾔﾆﾔ", "（ﾟДﾟ)ﾊｧ?", "工ｴｴｪｪ(´д｀)ｪｪｴｴ工", "( ´,_ゝ｀)ﾌﾟｯ", "m9（＾Д＾）ﾌﾟｷﾞｬｰ", "( ´Д｀)=3"];
+        const kaomojiSymbols = ["(^_^;)", "m(_ _)m", "orz", "(´；ω；｀)ﾌﾞﾜｯ", "Σ(ﾟДﾟ；≡；ﾟдﾟ)", "ｷﾀ━━━━(ﾟ∀ﾟ)━━━━!!", "( ´ー｀)ﾌｩｰ．．．（遠い目）", "ヽ(`Д´)ﾉｳﾜｧｧｧﾝ!!", "†卍【最強】卍†（自称）", "☆彡(ﾉﾟ▽ﾟ)ﾉ☆彡ﾍ(ﾟ▽ﾟﾍ)☆彡(ﾉﾟ▽ﾟ)ﾉ☆彡ｳｪｰﾌﾞ!!", "＿|￣|○⇒＿|＼○＿⇒＿/＼○＿⇒＿__＿○＿ｺﾞﾒﾝﾅｻｲ!!", "（　＾ω＾）・・・おっおっおっ", "（ ´∀｀）つ§　どうぞ", "（・∀・）ﾆﾔﾆﾔ", "（ﾟДﾟ)ﾊｧ?", "工ｴｴｪｪ(´д｀)ｪｪｴｴ工", "( ´,_ゝ｀)ﾌﾟｯ", "m9（＾Д＾）ﾌﾟｷﾞｬｰ（愛）", "( ´Д｀)=3"];
         const asciiArtSamples = [ 
             "　　　　　　　　　　　　　　　　 　 　 　 ,, 、\n　　　　　　　　　　　　　　　　　　　　　　ヾ　ヽ\n　　　　　　　　　　　　　　　　　　　　　　　　 `ー'''\n　　　　　　　　　　　　　　　　　　　　　 ,, -'''\"\n　　　　　　　　　　　　　　　　　　　／　　　　　　　ヽ\n　　　　　　　　　　　　　　　　　　/　　●　　　 ●　ヽ\n　　　　　　　　　　　　　　　　　　|　　　　( _●_)　　ミ　　　　モナー\n　　　　　　　　　　　　　　　　　彡､　　　|∪|　　　､｀＼\n　　　　　　　　　　　　　　　　 /　＿＿　ヽノ　/´>　 ) )\n　　　　　　　　　　　　　　　　(＿＿＿）　　　/　(_／\n　　　　　　　　　　　　　　　　　|　　　　　　 /|\n　　　　　　　　　　　　　　　　　|　　／＼　＼|\n　　　　　　　　　　　　　　　　　|　/　　　 )　 )\n　　　　　　　　　　　　　　　　　∪　　　 （　 ＼\n　　　　　　　　　　　　　　　　　　　　　　 ＼＿)",
             "　 ∧＿∧\n　（　・∀・）　　　ギコ猫\n　（　∪ ∪\n　と＿）__）",
@@ -273,16 +274,16 @@
             "　 Λ＿Λ\n　（ ・∀・ ）　　ワクワク\n　（　つ　つ\n　 `（＿）"
         ];
         const chuunibyouPhrases = [ 
-            "我が名は…フフ、今はまだ名乗る時ではない…", "闇の炎に抱かれて消えろ！", "この世界は偽りだ…真実を知る者は我のみ…",
-            "我が右腕に宿りし黒炎龍が疼く…ッ！", "フハハハ！愚かな人間どもめ！", "禁断の魔導書（グリモワール）によれば…",
-            "我は混沌より生まれし存在…", "運命の歯車は、今、回り始めたのだ…", "聖なる十字架（クルス）に誓って…！",
-            "血の契約（コントラクト）に従い、汝を召喚する！", "魂の共鳴を感じる…！", "選ばれし者よ、覚醒の時は来た！",
-            "漆黒の翼を広げ、終末の空へ…！", "この力…抑えきれない…！", "世界樹（ユグドラシル）の加護があらんことを…",
-            "魔眼（イーヴィルアイ）が真実を映し出す…", "時は満ちた…神々の黄昏（ラグナロク）を始めよう…", "我が魂の叫びを聞け！エターナルフォースブリザード！",
-            "くっ…！またこの力が暴走するというのか…！？", "フッ…傷のひとつやふたつ、くれてやる…", "この世の理（ことわり）など、我には通用せぬ！",
-            "罪深き魂よ、永遠の眠りにつくがよい…レクイエム！", "我こそが世界の破壊者にして創造主…！", "深淵を覗く時、深淵もまたこちらを覗いているのだ…",
-            "我が剣に断てぬものなし！…多分。", "運命に抗うことこそ、人間の証よ…！", "我が血に刻まれし宿命（さだめ）…逃れることはできぬ！",
-            "堕天使（フォールンエンジェル）の涙が、世界を濡らす…", "終焉の刻は近い…最後の晩餐を始めようか…", "古の盟約に従い、汝に命ずる！服従せよ！"
+            "我が名は…フフ、今はまだ名乗る時ではない…（キリッ）", "闇の炎に抱かれて眠れ…永遠に！", "この世界は歪んでいる…真実の扉を開くのは我だ…！",
+            "我が右目に宿りし古龍（エンシェントドラゴン）が目覚める…ッ！", "フハハハ！愚かで愛しき人間どもよ！", "禁断の聖典（アーティファクト）が囁く…",
+            "我は混沌より生まれし原初の存在（プロトタイプ）…", "運命の輪（ホイール・オブ・フォーチュン）は、今、静かに回り始めたのだ…", "聖なる剣（エクスカリバー）に我が魂を賭けて…！",
+            "血の盟約（ブラッドパクト）に従い、汝を我が僕（しもべ）として召喚する！", "魂の共振（ソウルレゾナンス）を感じる…！お前もか…？", "選ばれし聖騎士（パラディン）よ、覚醒の刻は来た！いざ、聖戦（ジハード）へ！",
+            "漆黒の堕天使の翼を広げ、終末の黄昏空（トワイライトスカイ）へ…！", "この抑えきれぬ力（パワー）…世界が震えている…！", "世界樹（ユグドラシル）の祝福が、我らと共にあらんことを…アーメン。",
+            "万物を見通す魔眼（イーヴィルアイ・オブ・トゥルース）が真実を暴き出す…！", "時は満ちた…神々の最終戦争（ラグナロク）のゴングを鳴らそう…", "我が魂の奥義！エターナルフォースブリザード・ゼロ！…くらえ！",
+            "くっ…！またこの忌まわしき力が暴走するというのか…！？誰か止めてくれ…！", "フッ…この程度の傷、誉れだ…（強がり）", "この世の理（ルール）など、我という存在（イレギュラー）には通用せぬのだ！",
+            "罪深き迷える魂よ、永遠の安らぎを得るがよい…鎮魂歌（レクイエム）を奏でよう…", "我こそが世界の破壊者にして再創造主（リ・クリエイター）…！ひれ伏すがよい！", "深淵を覗き続ける時、深淵もまたこちらを覗き、そして魅了されるのだ…",
+            "我が魔剣（グラム）に断てぬものなし！…と、思う今日この頃。", "運命に抗い、そして切り開くことこそ、人間の最も美しい輝きよ…！", "我が血に刻まれし古代の宿命（エンシェント・デスティニー）…もはや逃れることはできぬ！諦めも肝心だ！",
+            "堕天使（ルシファー）の悲しき涙が、この穢れた世界を浄化するだろう…", "終焉の刻は近い…最後の晩餐（ラストサパー）のメニューは何にしようか…", "古の魔法陣（マジックサークル）に従い、汝に命ずる！我が意のままに動け！…プリーズ？"
         ];
 
 
@@ -353,7 +354,7 @@
                 case 3: className = 'title-char-spinzoom'; break;
                 case 4: className = 'title-char-shake'; break;
             }
-            return text.split('').map((char, i) => `<span class="${className}" style="font-family:${getRandomElement(badFonts)} !important; color:${getRandomElement(garishColorPairs).text} !important; text-shadow: 3px 3px ${getRandomElement(garishColorPairs).bg} !important; animation-duration:${getRandomInt(15,30)/10}s; animation-delay:-${Math.random()*(animationType === 2 ? 0.8 : 2.0) + i*0.08}s; font-size: inherit !important;">${char === ' ' ? '&nbsp;' : char}</span>`).join(''); // animation-duration and delay adjusted
+            return text.split('').map((char, i) => `<span class="${className}" style="font-family:${getRandomElement(badFonts)} !important; color:${getRandomElement(garishColorPairs).text} !important; text-shadow: 3px 3px ${getRandomElement(garishColorPairs).bg} !important; animation-duration:${getRandomInt(15,30)/10}s; animation-delay:-${Math.random()*(animationType === 2 ? 0.8 : 2.0) + i*0.08}s; font-size: inherit !important;">${char === ' ' ? '&nbsp;' : char}</span>`).join('');
         }
 
         function makeSpeechBubbleCSS(text) { 
@@ -374,17 +375,16 @@
         function showUglyModal(title, message, gifSrc) { 
             document.getElementById('modalTitle').innerHTML = makeAnimatedTitle(title); 
             document.getElementById('modalTitle').style = getRandomUglyStyle(false, true);
-            document.getElementById('modalMessage').innerHTML = message.split(' ').map(w => Math.random() < 0.15 ? makeBlinking(w) : w).join(' '); // Blink less
+            document.getElementById('modalMessage').innerHTML = message.split(' ').map(w => Math.random() < 0.1 ? makeBlinking(w) : w).join(' '); // Blink even less
             document.getElementById('modalMessage').style = getRandomUglyStyle(true, true);
-            // document.getElementById('modalMessage').classList.add(Math.random() < 0.8 ? 'ugly-blink' : ''); // Removed to reduce blinking
-
+            
             document.getElementById('modalGif').src = gifSrc;
-            document.getElementById('modalGif').style.transform = `rotate(${getRandomInt(-15,15)}deg) scale(${getRandomInt(8,12)/10})`; // Less extreme
-            document.getElementById('modalGif').style.border = `${getRandomInt(4,8)}px ${getRandomElement(['dotted', 'dashed', 'solid'])} ${getRandomElement(garishColorPairs).text}`;
+            document.getElementById('modalGif').style.transform = `rotate(${getRandomInt(-10,10)}deg) scale(${getRandomInt(9,11)/10})`; 
+            document.getElementById('modalGif').style.border = `${getRandomInt(3,6)}px ${getRandomElement(['dotted', 'dashed'])} ${getRandomElement(garishColorPairs).text}`;
 
             const modalIconsContainer = document.getElementById('modalIcons');
             modalIconsContainer.innerHTML = '';
-            for(let i=0; i<getRandomInt(3,7); i++){ // icon数減
+            for(let i=0; i<getRandomInt(2,5); i++){ 
                 modalIconsContainer.innerHTML += makeBlinkingIcon(getRandomElement(uglyIcons));
             }
 
@@ -393,7 +393,7 @@
             modal.style.backgroundColor = modalColors.bg;
             modal.style.color = modalColors.text;
             modal.style.fontFamily = getRandomElement(badFonts);
-            if (Math.random() < 0.5) modal.classList.add('ugly-rainbow-bg'); // Rainbow less often
+            if (Math.random() < 0.4) modal.classList.add('ugly-rainbow-bg'); 
             modal.style.display = 'block';
             
             const closeButton = document.getElementById('closeModalButton');
@@ -401,8 +401,8 @@
             closeButton.style.backgroundColor = buttonColors.bg;
             closeButton.style.color = buttonColors.text;
             closeButton.style.fontFamily = getRandomElement(badFonts);
-            closeButton.style.fontSize = `${getRandomInt(14,24)}pt`; // Font size reduced
-            closeButton.innerHTML = makeBlinking(closeButton.textContent, `font-size:${getRandomInt(14,24)}pt; ${getRandomUglyStyle(false, true)}`);
+            closeButton.style.fontSize = `${getRandomInt(12,22)}pt`; 
+            closeButton.innerHTML = makeBlinking(closeButton.textContent, `font-size:${getRandomInt(12,22)}pt; ${getRandomUglyStyle(false, true)}`);
         }
 
         document.getElementById('closeModalButton').addEventListener('click', () => {
@@ -451,9 +451,9 @@
             const userContent = document.getElementById('pageContent').value || "ここに何か宇宙規模のすごいことが書いてあったはずなんだ…思い出せないけど。まあ、気にしないでくれ！と言いつつ、やっぱり気にしてほしい自分がいる今日この頃、皆様いかがお過ごしでしょうか？刮目せよ！そして崇めよ！我が闇の聖典（ダークバイブル）に記されし真実を！";
             const outputArea = document.getElementById('outputArea');
 
-            showUglyModal( // メッセージ変更
-                getRandomElement(["警告じゃ！", "注目！", "見てくれ！ヤバいのができたぞ！"]),
-                "ダサさと見にくさを極限まで強化したページが錬成されたぞ！心して見るように！",
+            showUglyModal( 
+                getRandomElement(["でけたで！", "注目！", "見てくれ！すごい（ダサい）のができたぞ！"]),
+                "ダサさと見にくさを追求したページが錬成されたぞ！ゆっくり見ていってね！",
                 getRandomElement(classicGifs)
             );
 
@@ -463,7 +463,8 @@
             if (Math.random() < 0.7) overallStyle += ` background-image: url('https://placehold.co/60x60/${getRandomElement(garishColorPairs).bg.substring(1)}/${getRandomElement(garishColorPairs).text.substring(1)}/gif?text=カオス&font=impact'); background-repeat: repeat !important; background-blend-mode: ${getRandomElement(['multiply', 'screen', 'overlay', 'darken', 'lighten', 'color-dodge', 'color-burn', 'hard-light', 'soft-light', 'difference', 'exclusion', 'hue', 'saturation', 'color', 'luminosity'])} !important;`;
             if (Math.random() < 0.6) overallStyle = `padding: 30px !important; border: 30px ${getRandomElement(['groove', 'ridge', 'inset', 'outset', 'double'])} ${getRandomElement(garishColorPairs).bg} !important;` + ` class="ugly-rainbow-bg"`;
 
-            html += `<div id="generatedContent" style="${overallStyle}">`;
+            // #generatedContent の直下にスタイルを記述
+            html = `<div id="generatedContent" style="${overallStyle}">`;
             html += `<style>
                 @keyframes blink { 0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); } 25% { opacity: 0.1; transform: scale(1.1) rotate(-2deg); } 50% { opacity: 1; transform: scale(0.98) rotate(0deg); } 75% { opacity: 0.1; transform: scale(1.1) rotate(2deg); } }
                 .ugly-blink { animation: blink 1.0s linear infinite; }
@@ -482,10 +483,10 @@
                 @keyframes shake-char-anim { 0% { transform: translate(1px, 1px) rotate(0deg); } 10% { transform: translate(-1px, -1px) rotate(-0.5deg); } 20% { transform: translate(-2px, 0px) rotate(0.5deg); } 30% { transform: translate(2px, 1px) rotate(0deg); } 40% { transform: translate(1px, -1px) rotate(0.5deg); } 50% { transform: translate(-1px, 1px) rotate(-0.5deg); } 60% { transform: translate(-2px, 1px) rotate(0deg); } 70% { transform: translate(2px, 0px) rotate(-0.5deg); } 80% { transform: translate(-1px, -1px) rotate(0.5deg); } 90% { transform: translate(1px, 1px) rotate(0deg); } 100% { transform: translate(1px, -1px) rotate(-0.5deg); } }
                 .title-char-shake { display: inline-block; animation: shake-char-anim 1.2s linear infinite; }
                 .ascii-art-block { padding: 12px; margin: 18px auto; border: 4px dotted; overflow-x: auto; white-space: pre; font-family: 'MS PGothic', 'IPAMonaPGothic', 'Mona', monospace !important; line-height: 1.15; font-size: 9pt; text-align: left; display: inline-block; max-width: 100%; }
-                #generatedContent * { box-sizing: border-box !important; margin:0 !important; padding:0 !important; }
+                #generatedContent * { box-sizing: border-box !important; margin:0 !important; padding:0 !important; } /* 強制リセットは維持 */
                 #generatedContent table, #generatedContent th, #generatedContent td { border-collapse: separate !important; border-spacing: ${getRandomInt(3,12)}px !important; caption-side: bottom !important; }
                 #generatedContent img { max-width: 100% !important; height: auto !important; display: block !important; margin: 12px auto !important; border: 6px solid yellow !important; }
-            </style>`;
+            </style>`; // styleタグをここで閉じる
 
             let siteTitle = userTitle;
             if (Math.random() < 0.98) siteTitle = getRandomElement(titlePrefixes) + siteTitle; 
@@ -570,21 +571,21 @@
             });
 
             html += `<hr style="border-top: 15px double ${getRandomElement(garishColorPairs).bg} !important; margin-top:60px !important;">`;
-            html += `<p style="${getRandomUglyStyle(false, true)}">どうだったかな？この<strong style="font-size:250% !important; ${getRandomUglyStyle(false, true)}" class="ugly-blink">${userTitle}</strong>のページは、君の脳髄と眼球と精神と魂に強烈かつ不可逆的で破壊的な何かを刻み込めたかな？ ${getRandomElement(kaomojiSymbols)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</p>`;
-            html += `<p style="font-family: '${getRandomElement(badFonts)}', cursive !important; font-size: ${getRandomInt(3,18)}pt !important; text-align:center !important; ${getRandomUglyStyle(true, true)}">${getRandomElement(verboseLeadIns)}またのお越しを、世界の果てか地獄の底か異次元の彼方か無間地獄から心よりお待ち申し上げておりますぞ！ ${getRandomElement(verboseTrailOuts)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(oldNetSlang)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</p>`;
+            html += `<p style="${getRandomUglyStyle(false, true)}">どうだったかな？この<strong style="font-size:250% !important; ${getRandomUglyStyle(false, true)}" class="ugly-blink">${userTitle}</strong>のページは、君の目に新しい刺激を与えられたかな？ ${getRandomElement(kaomojiSymbols)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</p>`;
+            html += `<p style="font-family: '${getRandomElement(badFonts)}', cursive !important; font-size: ${getRandomInt(3,18)}pt !important; text-align:center !important; ${getRandomUglyStyle(true, true)}">${getRandomElement(verboseLeadIns)}またのお越しを、心よりお待ち申し上げておりますぞ！ ${getRandomElement(verboseTrailOuts)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(oldNetSlang)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</p>`;
             if (Math.random() < 0.6) html += `<div style="text-align:center; margin: 25px 0; padding:10px; border:4px groove ${getRandomElement(garishColorPairs).text}; background-color:${getRandomElement(garishColorPairs).bg};">${makeAsciiArtBlock()}</div>`;
 
             html += `<hr style="height:30px !important; background-image: linear-gradient(to right, ${getRandomElement(garishColorPairs).bg}, ${getRandomElement(garishColorPairs).text}, ${getRandomElement(garishColorPairs).bg}, ${getRandomElement(garishColorPairs).text}, ${getRandomElement(garishColorPairs).bg}, ${getRandomElement(garishColorPairs).text}, ${getRandomElement(garishColorPairs).bg}, ${getRandomElement(garishColorPairs).text}, ${getRandomElement(garishColorPairs).bg}) !important; border:none !important; margin: 40px 0 !important; transform: skewY(${getRandomInt(-3,3)}deg) !important;">`;
             html += `<div style="text-align: center !important; ${getRandomUglyStyle(false, true)} padding: 10px !important;" class="${Math.random() < 0.5 ? 'ugly-rainbow-bg' : ''}">`;
-            html += `<p style="line-height:2.2 !important; font-size:0.7em !important;">アクセスカウンター: <img src="https://placehold.co/200x80/${getRandomElement(garishColorPairs).bg.substring(1)}/${getRandomElement(garishColorPairs).text.substring(1)}/?text=${getRandomInt(10000000,999999999)}&font=impact" alt="アクセスカウンター" style="display:inline-block !important; vertical-align:middle !important; border:4px solid red !important; transform: rotate(${getRandomInt(-5,5)}deg) !important;"> 人目のお客様だ！キリ番ゲッターはBBSに血染めのポエムと黒歴史をカキコ必須な！ ${makeBlinkingIcon("🎊")} ${makeBlinkingIcon("💯")} ${makeBlinkingIcon("💸")}</p>`;
+            html += `<p style="line-height:2.2 !important; font-size:0.7em !important;">アクセスカウンター: <img src="https://placehold.co/200x80/${getRandomElement(garishColorPairs).bg.substring(1)}/${getRandomElement(garishColorPairs).text.substring(1)}/?text=${getRandomInt(10000000,999999999)}&font=impact" alt="アクセスカウンター" style="display:inline-block !important; vertical-align:middle !important; border:4px solid red !important; transform: rotate(${getRandomInt(-5,5)}deg) !important;"> 人目のお客様だ！キリ番ゲッターはBBSにポエムと黒歴史をカキコ必須な！ ${makeBlinkingIcon("🎊")} ${makeBlinkingIcon("💯")} ${makeBlinkingIcon("💸")}</p>`;
             html += `<p style="line-height:2.2 !important; font-size:0.7em !important;"><img src="${getRandomElement(classicGifs)}" alt="工事中" style="display:inline-block !important; vertical-align:middle !important; transform: scale(${getRandomInt(8,12)/10}) !important;"> このサイトは Netscape Navigator -1.0 及び Internet Explorer 0.0 で最適に表示されるようには全くこれっぽっちも微塵も輪廻転生しても作られていませんが、魂と気合と愛と勇気とSAN値で見てください。推奨環境はカオスと狂気と無秩序です。</p>`;
             html += `<p style="font-size: 4pt !important; line-height:2 !important; word-break:break-all !important;">(C) 1XXX - ${new Date().getFullYear()} ${userTitle}の電脳秘密結社NEOアマゾネス最終聖戦黙示録RETURNS FOREVER. All rights maybe reserved, maybe not. Who cares? Don't sue me bro. If you can read this, you are too close to the abyss. This site is protected by ancient curse. ${getRandomElement(kaomojiSymbols)} ${getRandomElement(oldNetSlang)} ${getRandomElement(chuunibyouPhrases)}</p>`;
             html += `<a href="#" style="${getRandomUglyStyle(false, true)}font-size:1.5em !important; display:inline-block; margin:5px; padding:5px; border:2px solid;">${makeBlinking("ゲストブックに魂の叫びと遺言と黒歴史を記帳！")}</a> | <a href="#" style="${getRandomUglyStyle(false, true)}font-size:1.5em !important; display:inline-block; margin:5px; padding:5px; border:2px solid;">${makeRainbowText("お友達リンク（絶滅確定種・保護対象外）")}</a> | <a href="#" style="${getRandomUglyStyle(false, true)}font-size:1.5em !important; display:inline-block; margin:5px; padding:5px; border:2px solid;">管理人にラブレター（届いたら奇跡、読まれたらもっと奇跡、返事が来たら世界の終わり）</a>`;
             html += `</div>`;
             
-            html += `</div>`;
+            html += `</div>`; // generatedContent の閉じ
 
-            outputArea.innerHTML = html;
+            outputArea.innerHTML = html; 
             downloadButton.style.display = 'block';
         });
 
