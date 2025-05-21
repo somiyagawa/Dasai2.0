@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【最終形態Ver.2.2】激ダサホームページメーカー</title>
+    <title>【最終形態Ver.2.4】激ダサホームページメーカー</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
     <style>
@@ -13,16 +13,16 @@
         /* 点滅アニメーション */
         @keyframes blink {
             0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
-            25% { opacity: 0.1; transform: scale(1.08) rotate(-1.5deg); } /* さらに少し抑えめに */
+            25% { opacity: 0.1; transform: scale(1.08) rotate(-1.5deg); } 
             50% { opacity: 1; transform: scale(0.99) rotate(0deg); }
             75% { opacity: 0.1; transform: scale(1.08) rotate(1.5deg); }
         }
         .ugly-blink {
-            animation: blink 1.2s linear infinite; /* さらにゆっくりに */
+            animation: blink 1.2s linear infinite; 
         }
         .icon-blink {
             display: inline-block;
-            animation: blink 0.9s linear infinite alternate; /* さらにゆっくりに */
+            animation: blink 0.9s linear infinite alternate; 
         }
 
         /* スクロール（マーキー）アニメーション */
@@ -32,14 +32,14 @@
             padding: 12px 0;
             margin: 18px 0;
             border: 8px ridge hotpink; 
-            transform: skewY(-1.5deg) rotate(0.3deg); /* さらに抑えめに */
+            transform: skewY(-1.5deg) rotate(0.3deg); 
         }
         .ugly-marquee-text {
             display: inline-block;
             padding-left: 100%;
-            animation: marquee-scroll 15s linear infinite; /* さらにゆっくりに */
+            animation: marquee-scroll 15s linear infinite; 
             white-space: nowrap;
-            font-size: 26pt; /* 少し小さく */
+            font-size: 26pt; 
             font-weight: 900;
             text-shadow: 2px 2px 0px lime, -2px -2px 0px magenta, 0 0 3px yellow; 
         }
@@ -54,16 +54,16 @@
         /* 虹色テキスト */
         .ugly-rainbow-text {
             background-image: linear-gradient(60deg, red,deeppink,orange,yellow,lime,springgreen,cyan,blue,darkviolet,magenta,red,deeppink,orange,yellow,lime,springgreen,cyan,blue,darkviolet,magenta);
-            background-size: 350% auto; /* 動きをさらに抑える */
+            background-size: 350% auto; 
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             font-weight: 900; 
-            animation: rainbow-flow 2.5s linear infinite; /* さらにゆっくりに */
+            animation: rainbow-flow 2.5s linear infinite; 
         }
         @keyframes rainbow-flow {
             0% { background-position: 0% center; }
-            50% { background-position: 175% center; } /* 半分に */
+            50% { background-position: 175% center; } 
             100% { background-position: 350% center; }
         }
 
@@ -71,39 +71,39 @@
         @keyframes wavy-text-anim { 
             0%, 100% { transform: translateY(0) rotate(0deg) skewX(0deg) scale(1); } 15% { transform: translateY(-8px) rotate(-2deg) skewX(5deg) scale(1.08); } 30% { transform: translateY(4px) rotate(1deg) skewX(-3deg) scale(0.97); } 45% { transform: translateY(-6px) rotate(2deg) skewX(4deg) scale(1.03); } 60% { transform: translateY(5px) rotate(-0.5deg) skewX(-4deg) scale(1.01); } 75% { transform: translateY(-3px) rotate(1deg) skewX(2deg) scale(0.93); } 90% { transform: translateY(2px) rotate(-1deg) skewX(-2deg) scale(1.005); }
         }
-        .title-char-wavy { display: inline-block; animation: wavy-text-anim 2.2s ease-in-out infinite; } /* さらにゆっくりに */
+        .title-char-wavy { display: inline-block; animation: wavy-text-anim 2.2s ease-in-out infinite; } 
 
         @keyframes bounce-char-anim { 
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-7px);}
         }
-        .title-char-bounce { display: inline-block; animation: bounce-char-anim 2.5s ease-in-out infinite; } /* さらにゆっくりに */
+        .title-char-bounce { display: inline-block; animation: bounce-char-anim 2.5s ease-in-out infinite; } 
 
         @keyframes spin-zoom-char-anim { 
             0%, 100% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(360deg) scale(1.25); } 
         }
-        .title-char-spinzoom { display: inline-block; animation: spin-zoom-char-anim 3.0s linear infinite; } /* さらにゆっくりに */
+        .title-char-spinzoom { display: inline-block; animation: spin-zoom-char-anim 3.0s linear infinite; } 
         
         @keyframes shake-char-anim { 
              0% { transform: translate(0.5px, 0.5px) rotate(0deg); } 10% { transform: translate(-0.5px, -1px) rotate(-0.3deg); } 20% { transform: translate(-1.5px, 0px) rotate(0.3deg); } 30% { transform: translate(1.5px, 1px) rotate(0deg); } 40% { transform: translate(0.5px, -0.5px) rotate(0.3deg); } 50% { transform: translate(-0.5px, 1px) rotate(-0.3deg); } 60% { transform: translate(-1.5px, 0.5px) rotate(0deg); } 70% { transform: translate(1.5px, 0px) rotate(-0.3deg); } 80% { transform: translate(-0.5px, -0.5px) rotate(0.3deg); } 90% { transform: translate(0.5px, 1px) rotate(0deg); } 100% { transform: translate(0.5px, -1px) rotate(-0.3deg); }
         }
-        .title-char-shake { display: inline-block; animation: shake-char-anim 1.5s linear infinite; } /* さらにゆっくりに */
+        .title-char-shake { display: inline-block; animation: shake-char-anim 1.5s linear infinite; } 
 
         /* ダサいモーダル */
         .ugly-modal {
             position: fixed; top: 50%; left: 50%; 
             transform: translate(-50%, -50%) rotate(0.5deg) scale(1); 
-            padding: 20px; /* さらに縮小 */
+            padding: 20px; 
             border: 8px outset lime; 
             z-index: 30000; text-align: center; 
             box-shadow: 0 0 25px 8px rgba(255,0,0,0.6); 
             display: none; 
-            min-width: 320px; /* さらに縮小 */
+            min-width: 320px; 
             max-width: 85vw; 
         }
-        .ugly-modal h3 { font-size: 2.0em; margin-bottom: 15px; } /* さらに縮小 */
-        .ugly-modal p { margin-bottom: 15px; font-size: 1.1em; line-height: 1.4; } /* さらに縮小 */
+        .ugly-modal h3 { font-size: 2.0em; margin-bottom: 15px; } 
+        .ugly-modal p { margin-bottom: 15px; font-size: 1.1em; line-height: 1.4; } 
         .ugly-modal button { 
-            padding: 10px 20px; /* さらに縮小 */
+            padding: 10px 20px; 
             border: 7px groove cyan; 
             cursor: grabbing; font-weight: 900; 
             transform: skewX(-8deg) rotate(-0.5deg) scale(1); 
@@ -113,13 +113,18 @@
 
         .speech-bubble { position: relative; padding: 30px; margin: 2.5em 0 4.5em; border: 6px solid black; border-radius: 25px; display: inline-block; max-width: 99%; }
 
-        .ugly-rainbow-bg { background: linear-gradient(170deg, red,darkorange,gold,yellow,lime,forestgreen,springgreen,cyan,deepskyblue,blue,darkviolet,purple,magenta,deeppink,red,darkorange,gold,yellow,lime,forestgreen,springgreen,cyan,deepskyblue,blue,darkviolet,purple,magenta,deeppink); animation: rainbow-bg-flow 3.5s ease infinite; background-size: 800% 800%; } /* さらにゆっくりに */
+        .ugly-rainbow-bg { background: linear-gradient(170deg, red,darkorange,gold,yellow,lime,forestgreen,springgreen,cyan,deepskyblue,blue,darkviolet,purple,magenta,deeppink,red,darkorange,gold,yellow,lime,forestgreen,springgreen,cyan,deepskyblue,blue,darkviolet,purple,magenta,deeppink); animation: rainbow-bg-flow 3.5s ease infinite; background-size: 800% 800%; } 
         @keyframes rainbow-bg-flow { 0%{background-position:0% 95%} 50%{background-position:100% 5%} 100%{background-position:0% 95%} }
         
         #downloadButton { margin-top: 30px; padding: 15px 30px; font-size: 1.8em; font-weight: 900; border: 8px outset #FF4500; background-image: linear-gradient(to bottom, #FFA500, #FF0000); color: white; text-shadow: 3px 3px 2px black, 0 0 10px yellow; border-radius: 20px; cursor: help; display: block; margin-left: auto; margin-right: auto; width: fit-content; transform: rotate(-1deg) skewX(2deg); }
         #downloadButton:hover { transform: scale(1.1) rotate(1deg) skewX(-3deg); box-shadow: 0 0 25px #FFFF00, 0 0 12px #00FF00; }
 
         .ascii-art-block { padding: 12px; margin: 18px auto; border: 4px dotted; overflow-x: auto; white-space: pre; font-family: 'MS PGothic', 'IPAMonaPGothic', 'Mona', monospace !important; line-height: 1.15; font-size: 9pt; text-align: left; display: inline-block; max-width: 100%; }
+        /* 生成コンテンツ内でのスタイルリセット */
+        #generatedContent * { box-sizing: border-box !important; margin:0 !important; padding:0 !important; }
+        #generatedContent table, #generatedContent th, #generatedContent td { border-collapse: separate !important; caption-side: bottom !important; }
+        #generatedContent img { max-width: 100% !important; height: auto !important; display: block !important; margin: 12px auto !important; border: 6px solid yellow !important; }
+
     </style>
 </head>
 <body class="bg-gray-500 p-4 md:p-8">
@@ -232,7 +237,7 @@
             "※この文章はランダム生成です（たぶん本当）", "※注釈を読むより本文を楽しんで！", "※この注釈はオマケです。"
         ];
         const verboseLeadIns = [ 
-            "さて、諸君！ここで注目してくれたまえ！この驚きの事実に… ", "つまりだ、要するにだな…いや、やっぱり詳しく説明しよう！刮目せよ！ ", "別の角度から、いや、いっそ斬新な視点から言わせてもらうならばだな…聞いてくれ！ ",
+            "さて、みんな！ここで注目してくれたまえ！この驚きの事実に… ", "つまりだ、要するにだな…いや、やっぱり詳しく説明しよう！よく見ててね！ ", "別の角度から、いや、いっそ斬新な視点から言わせてもらうならばだな…聞いてくれ！ ",
             "驚天動地！空前絶後！の（かもしれない）情報が今、解禁される！ ", "前代未聞！（だといいな）この話を聞いてくれ！心して聞くように！ ", "声を大にして言いたいのは、この点だ！注目だ！そして楽しんでくれ！ "
         ];
         const verboseTrailOuts = [ 
@@ -243,7 +248,7 @@
         const titleSuffixes = ["！！！", "ｗｗｗ", "（秘）", "DX", "202X", "RETURNS", "～新たなる序章～", "Ver.Final (仮)", "（かもね）"];
         const classicGifs = [ 
             "https://placehold.co/80x80/FFFF00/000000/?text=超絶神NEW!",
-            "https://placehold.co/140x60/0000FF/FFFFFF/?text=絶賛焦土炎上中だぜ！",
+            "https://placehold.co/140x60/0000FF/FFFFFF/?text=絶賛お祭り騒ぎ中だぜ！", // 変更
             "https://placehold.co/60x60/FF0000/FFFFFF/?text=★神降臨覚醒★",
             "https://placehold.co/180x80/00FF00/000000/?text=MAIL ME IF YOU DARE"
         ];
@@ -251,39 +256,52 @@
             "https://placehold.co/180x180/FF00FF/00FFFF/?text=謎の超究極物体XΩFinal",
             "https://placehold.co/220x140/00FF00/FF0000/?text=謎の超究極生命体Z改二",
             "https://placehold.co/140x200/FFFF00/0000FF/?text=謎の超究極オーパーツYPrime",
-            "https://placehold.co/120x120/000000/FFFFFF/?text=深淵の闇画像"
+            "https://placehold.co/120x120/000000/FFFFFF/?text=神秘的な画像" // 変更
         ];
-        const uglyIcons = ['✨', '🌟', '💫', '💥', '🔥', '🚀', '🎉', '🎊', '💯', '💔', '💣', '👾', '👽', '💀', '😂', '💩', '☢️', '☣️', '🤯', '😱', '🌌', '🌠', '🪐', '🛸', '💸', '💎', '🌀', '☄️', '🔮', '🧿', '📛', '�', '⚜️', '🔔'];
+        const uglyIcons = ['✨', '🌟', '💫', '💥', '🔥', '🚀', '🎉', '🎊', '💯', '💔', '💣', '👾', '👽', '💀', '😂', '💩', '☢️', '☣️', '🤯', '😱', '🌌', '🌠', '🪐', '🛸', '💸', '💎', '🌀', '☄️', '🔮', '🧿', '📛', '🔱', '⚜️', '🔔'];
         const oldNetSlang = [ 
-            "ちょｗｗｗ", "乙！", "ktkr", "orz", "GJ!", "kwsk", "wktk", "うp", "鯖落ち？", "禿同かも", "リア充いいな！", "m9(^Д^)ﾌﾟｷﾞｬｰ（冗談）", "キボンヌ！", "逝ってよし！（愛を込めて）", "ネカマ注意？", "香具師さん乙", "詳細キボンヌ！", ">>1乙です！"
+            "ちょｗｗｗ", "乙！", "ktkr", "orz", "GJ!", "kwsk", "wktk", "うp", "鯖落ち？", "禿同かも", "リア充いいな！", "m9(^Д^)ﾌﾟｷﾞｬｰ（冗談）", "キボンヌ！", "頑張って！（愛を込めて）", //変更
+            "ネットの世界は奥深いね！", //変更
+            "香具師さん乙", "詳細キボンヌ！", ">>1乙です！"
         ];
         const pseudoBusinessJargon = [ 
             "このイシューに対しては、まずKPIを再定義し、ステークホルダー間のコンセンサス形成をプライオリティに置くべきです。その上で、アジャイルなPDCAサイクルを回し、シナジー効果を最大化するソリューションをローンチする必要がありますね。…なんてね！",
             "サステナビリティを考慮したデジタルトランスフォーメーション(DX)は、エンゲージメントを高め、コアコンピタンスを強化する上で不可欠なパラダイムシフトと言えるでしょう。リソースを最適にアロケーションし、イノベーティブなエコシステムを構築することが急務です。…たぶん！",
             "当社のバリュープロポジションは、顧客インサイトに基づいたペルソナ設定とカスタマージャーニーの最適化にあります。これにより、コンバージョンレートを向上させ、最終的にはROIの最大化にコミットします。エビデンスベースでリスケし、ウィンウィンな関係を目指しましょう。…なんちゃって！"
         ];
-        const kaomojiSymbols = ["(^_^;)", "m(_ _)m", "orz", "(´；ω；｀)ﾌﾞﾜｯ", "Σ(ﾟДﾟ；≡；ﾟдﾟ)", "ｷﾀ━━━━(ﾟ∀ﾟ)━━━━!!", "( ´ー｀)ﾌｩｰ．．．（遠い目）", "ヽ(`Д´)ﾉｳﾜｧｧｧﾝ!!", "†卍【最強】卍†（自称）", "☆彡(ﾉﾟ▽ﾟ)ﾉ☆彡ﾍ(ﾟ▽ﾟﾍ)☆彡(ﾉﾟ▽ﾟ)ﾉ☆彡ｳｪｰﾌﾞ!!", "＿|￣|○⇒＿|＼○＿⇒＿/＼○＿⇒＿__＿○＿ｺﾞﾒﾝﾅｻｲ!!", "（　＾ω＾）・・・おっおっおっ", "（ ´∀｀）つ§　どうぞ", "（・∀・）ﾆﾔﾆﾔ", "（ﾟДﾟ)ﾊｧ?", "工ｴｴｪｪ(´д｀)ｪｪｴｴ工", "( ´,_ゝ｀)ﾌﾟｯ", "m9（＾Д＾）ﾌﾟｷﾞｬｰ（愛）", "( ´Д｀)=3"];
+        const kaomojiSymbols = ["(^_^;)", "m(_ _)m", "orz", "((´；ω；｀)ﾌﾞﾜｯ", "Σ(ﾟДﾟ；≡；ﾟдﾟ)", "ｷﾀ━━━━(ﾟ∀ﾟ)━━━━!!", "( ´ー｀)ﾌｩｰ．．．（遠い目）", "ヽ(`Д´)ﾉｳﾜｧｧｧﾝ!!", "†卍【最強】卍†（自称）", "☆彡(ﾉﾟ▽ﾟ)ﾉ☆彡ﾍ(ﾟ▽ﾟﾍ)☆彡(ﾉﾟ▽ﾟ)ﾉ☆彡ｳｪｰﾌﾞ!!", "＿|￣|○⇒＿|＼○＿⇒＿/＼○＿⇒＿__＿○＿ｺﾞﾒﾝﾅｻｲ!!", "（　＾ω＾）・・・おっおっおっ", "（ ´∀｀）つ§　どうぞ", "（・∀・）ﾆﾔﾆﾔ", "（ﾟДﾟ)ﾊｧ?", "工ｴｴｪｪ(´д｀)ｪｪｴｴ工", "( ´,_ゝ｀)ﾌﾟｯ", "m9（＾Д＾）ﾌﾟｷﾞｬｰ（愛）", "( ´Д｀)=3"];
         const asciiArtSamples = [ 
-            "　　　　　　　　　　　　　　　　 　 　 　 ,, 、\n　　　　　　　　　　　　　　　　　　　　　　ヾ　ヽ\n　　　　　　　　　　　　　　　　　　　　　　　　 `ー'''\n　　　　　　　　　　　　　　　　　　　　　 ,, -'''\"\n　　　　　　　　　　　　　　　　　　　／　　　　　　　ヽ\n　　　　　　　　　　　　　　　　　　/　　●　　　 ●　ヽ\n　　　　　　　　　　　　　　　　　　|　　　　( _●_)　　ミ　　　　モナー\n　　　　　　　　　　　　　　　　　彡､　　　|∪|　　　､｀＼\n　　　　　　　　　　　　　　　　 /　＿＿　ヽノ　/´>　 ) )\n　　　　　　　　　　　　　　　　(＿＿＿）　　　/　(_／\n　　　　　　　　　　　　　　　　　|　　　　　　 /|\n　　　　　　　　　　　　　　　　　|　　／＼　＼|\n　　　　　　　　　　　　　　　　　|　/　　　 )　 )\n　　　　　　　　　　　　　　　　　∪　　　 （　 ＼\n　　　　　　　　　　　　　　　　　　　　　　 ＼＿)",
+            "　　　　　　　　　　　　　　　　 　 　 　 ,, 、\n　　　　　　　　　　　　　　　　　　　　　　ヾ　ヽ\n　　　　　　　　　　　　　　　　　　　　　　　 `ー'''\n　　　　　　　　　　　　　　　　　　　　　 ,, -'''\"\n　　　　　　　　　　　　　　　　　　　／　　　　　　　ヽ\n　　　　　　　　　　　　　　　　　　/　　●　　　 ●　ヽ\n　　　　　　　　　　　　　　　　　　|　　　　( _●_)　　ミ　　　　モナー\n　　　　　　　　　　　　　　　　　彡､　　　|∪|　　　､｀＼\n　　　　　　　　　　　　　　　　 /　＿＿　ヽノ　/´>　 ) )\n　　　　　　　　　　　　　　　　(＿＿＿）　　　/　(_／\n　　　　　　　　　　　　　　　　　|　　　　　　 /|\n　　　　　　　　　　　　　　　　　|　　／＼　＼|\n　　　　　　　　　　　　　　　　　|　/　　　 )　 )\n　　　　　　　　　　　　　　　　　∪　　　 （　 ＼\n　　　　　　　　　　　　　　　　　　　　　　 ＼＿)",
             "　 ∧＿∧\n　（　・∀・）　　　ギコ猫\n　（　∪ ∪\n　と＿）__）",
             "　 ∧∧\n　(,,ﾟДﾟ)　やる夫\n　⊂⊂｜\n　　 し`Ｊ",
             "ｷﾀ━━━━━━(ﾟ∀ﾟ)━━━━━━!!!!",
             "　　　　　　　 ,,　＿\n　　　　　　　／ 　　　 ｀ ､\n　　　　　　/　　(_ﾉL_）　 ヽ\n　　　　　 /　　 ´・　 ・｀　　l　　　しぃ\n　　　　 （l　 　　　し　　　　l）\n　　　　　l　　　　＿＿　　 l\n　　　　　 >　､ _ 　　　　 ィ\n　　　　 ／　 　　　￣　　 ヽ\n　　 　 /　|　　　　　　　　　|ヽ\n　　　　|　|　　　　　　　　　|　|\n　　　　|　|　　　　　　　　　|　|\n",
-            "　　　　　　＿＿＿\n　　　　　／　 ―　　＼\n　　　　／　　(●)　 (●)＼\n　　　 |　　　 （__人__）　 |　　　ダメだこりゃ\n　　　 ＼　　　 ｀⌒´　 ／\n　　　／´　 　　　　　 ｀＼\n　　/　 /　　　　　　　　ヽ\n　　|　　ヽ　　　　　　　 　ﾄ､\n",
-            "　♪　∧__,∧.∩\n　　 ｒ（ ＾ω＾ ）ﾉ _\n　　└‐、　　　ﾚ´｀ヽ　　お断りします\n　　　　 ヽ　　 _ノ⌒⌒ヽ\n　　　　　|　　　 ー LLPﾉ\n　　　　　ゝ　　　　　ノ\n　　　　　　　　　　　 ",
+            "　　　　　　＿＿＿\n　　　　　／　 ―　　＼\n　　　　／　　(●)　 (●)＼\n　　　 |　　　 （__人__）　 |　　　まあ、いいか\n　　　 ＼　　　 ｀⌒´　 ／\n　　　／´　 　　　　　 ｀＼\n　　/　 /　　　　　　　　ヽ\n　　|　　ヽ　　　　　　　 　ﾄ､\n", //変更
+            "　♪　∧__,∧.∩\n　　 ｒ（ ＾ω＾ ）ﾉ _\n　　└‐、　　　ﾚ´｀ヽ　　お断りします（優しく）\n　　　　 ヽ　　 _ノ⌒⌒ヽ\n　　　　　|　　　 ー LLPﾉ\n　　　　　ゝ　　　　　ノ\n　　　　　　　　　　　 ", //変更
             "　 Λ＿Λ\n　（ ・∀・ ）　　ワクワク\n　（　つ　つ\n　 `（＿）"
         ];
         const chuunibyouPhrases = [ 
-            "我が名は…フフ、今はまだ名乗る時ではない…（キリッ）", "闇の炎に抱かれて眠れ…永遠に！", "この世界は歪んでいる…真実の扉を開くのは我だ…！",
-            "我が右目に宿りし古龍（エンシェントドラゴン）が目覚める…ッ！", "フハハハ！愚かで愛しき人間どもよ！", "禁断の聖典（アーティファクト）が囁く…",
+            "我が名は…フフ、今はまだ名乗る時ではない…（キリッ）", "闇のオーラに包まれよ…永遠に！",  //変更
+            "この世界は歪んでいる…真実の扉を開くのは我だ…！",
+            "我が右目に宿りし古龍（エンシェントドラゴン）が目覚める…ッ！", "フハハハ！愛すべき人間どもよ！", //変更
+            "禁断の聖典（アーティファクト）が囁く…",
             "我は混沌より生まれし原初の存在（プロトタイプ）…", "運命の輪（ホイール・オブ・フォーチュン）は、今、静かに回り始めたのだ…", "聖なる剣（エクスカリバー）に我が魂を賭けて…！",
-            "血の盟約（ブラッドパクト）に従い、汝を我が僕（しもべ）として召喚する！", "魂の共振（ソウルレゾナンス）を感じる…！お前もか…？", "選ばれし聖騎士（パラディン）よ、覚醒の刻は来た！いざ、聖戦（ジハード）へ！",
-            "漆黒の堕天使の翼を広げ、終末の黄昏空（トワイライトスカイ）へ…！", "この抑えきれぬ力（パワー）…世界が震えている…！", "世界樹（ユグドラシル）の祝福が、我らと共にあらんことを…アーメン。",
-            "万物を見通す魔眼（イーヴィルアイ・オブ・トゥルース）が真実を暴き出す…！", "時は満ちた…神々の最終戦争（ラグナロク）のゴングを鳴らそう…", "我が魂の奥義！エターナルフォースブリザード・ゼロ！…くらえ！",
-            "くっ…！またこの忌まわしき力が暴走するというのか…！？誰か止めてくれ…！", "フッ…この程度の傷、誉れだ…（強がり）", "この世の理（ルール）など、我という存在（イレギュラー）には通用せぬのだ！",
-            "罪深き迷える魂よ、永遠の安らぎを得るがよい…鎮魂歌（レクイエム）を奏でよう…", "我こそが世界の破壊者にして再創造主（リ・クリエイター）…！ひれ伏すがよい！", "深淵を覗き続ける時、深淵もまたこちらを覗き、そして魅了されるのだ…",
-            "我が魔剣（グラム）に断てぬものなし！…と、思う今日この頃。", "運命に抗い、そして切り開くことこそ、人間の最も美しい輝きよ…！", "我が血に刻まれし古代の宿命（エンシェント・デスティニー）…もはや逃れることはできぬ！諦めも肝心だ！",
-            "堕天使（ルシファー）の悲しき涙が、この穢れた世界を浄化するだろう…", "終焉の刻は近い…最後の晩餐（ラストサパー）のメニューは何にしようか…", "古の魔法陣（マジックサークル）に従い、汝に命ずる！我が意のままに動け！…プリーズ？"
+            "魂の契約（ソウルコントラクト）に従い、汝を我が友として召喚する！", //変更
+            "魂の共振（ソウルレゾナンス）を感じる…！お前もか…？", "選ばれし聖騎士（パラディン）よ、覚醒の刻は来た！いざ、聖なる戦いへ！", //変更
+            "漆黒の翼を広げ、終末の黄昏空（トワイライトスカイ）へ…！", "この抑えきれぬ力（パワー）…世界が震えている…！", "世界樹（ユグドラシル）の祝福が、我らと共にあらんことを…アーメン。",
+            "万物を見通す魔眼（イーヴィルアイ・オブ・トゥルース）が真実を暴き出す…！", "時は満ちた…神々の最終決戦のゴングを鳴らそう…", //変更
+            "我が魂の奥義！エターナルシャイニングストーム！…くらえ！", //変更
+            "くっ…！またこの秘めたる力が解放されるというのか…！？誰か見守っていてくれ…！", //変更
+            "フッ…この程度の試練、乗り越えてみせる…（強がり）", //変更
+            "この世の理（ルール）など、我という存在（イレギュラー）には通用せぬのだ！",
+            "迷える魂よ、安らかなる場所へ…祈りを捧げよう…", //変更
+            "我こそが世界の変革者にして再構築主（リ・クリエイター）…！刮目せよ！", //変更
+            "深淵を覗き続ける時、深淵もまたこちらを覗き、そして魅了されるのだ…",
+            "我が聖剣（カリバーン）に断てぬものなし！…と、思う今日この頃。", //変更
+            "運命に抗い、そして切り開くことこそ、人間の最も美しい輝きよ…！", "我が魂に刻まれし古代の宿命（エンシェント・デスティニー）…もはや逃れることはできぬ！受け入れるのもまた一興だ！", //変更
+            "天空より堕ちし者の涙が、この世界を潤すだろう…", //変更
+            "変革の刻は近い…祝宴の準備を始めようか…", //変更
+            "古の盟約に従い、汝に願う！力を貸してくれ！…プリーズ？" //変更
         ];
 
 
@@ -375,7 +393,7 @@
         function showUglyModal(title, message, gifSrc) { 
             document.getElementById('modalTitle').innerHTML = makeAnimatedTitle(title); 
             document.getElementById('modalTitle').style = getRandomUglyStyle(false, true);
-            document.getElementById('modalMessage').innerHTML = message.split(' ').map(w => Math.random() < 0.1 ? makeBlinking(w) : w).join(' '); // Blink even less
+            document.getElementById('modalMessage').innerHTML = message.split(' ').map(w => Math.random() < 0.1 ? makeBlinking(w) : w).join(' '); 
             document.getElementById('modalMessage').style = getRandomUglyStyle(true, true);
             
             document.getElementById('modalGif').src = gifSrc;
@@ -414,23 +432,55 @@
             }
         });
         
-        document.getElementById('mainTitleContainer').innerHTML = makeAnimatedTitle("【最終形態Ver.2.1】激ダサホームページメーカー");
+        document.getElementById('mainTitleContainer').innerHTML = makeAnimatedTitle("【最終形態Ver.2.3】激ダサホームページメーカー"); // バージョン更新
 
         const downloadButton = document.getElementById('downloadButton');
         downloadButton.addEventListener('click', () => { 
-            const outputAreaClone = document.getElementById('outputArea').cloneNode(true);
-            const generatedHtml = outputAreaClone.querySelector('#generatedContent').innerHTML;
-            const pageTitleInput = document.getElementById('pageTitle').value || "激ダサホームページ・最終形態Ver2.1";
+            const outputAreaNode = document.getElementById('outputArea');
+            const generatedContentNode = outputAreaNode.querySelector('#generatedContent');
+            if (!generatedContentNode) {
+                console.error("Error: #generatedContent not found for download.");
+                return;
+            }
+            const generatedHtml = generatedContentNode.innerHTML;
+
+            const pageTitleInput = document.getElementById('pageTitle').value || "激ダサホームページ・最終形態Ver2.3"; // バージョン更新
             const sanitizedPageTitle = pageTitleInput.replace(/[^a-z0-9_-\u3040-\u30FF\u4E00-\u9FFF]/gi, '_');
             
-            let fullHtml = `<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><title>${sanitizedPageTitle}</title><style>`;
-            const styles = document.querySelectorAll('style');
-            styles.forEach(style => {
-                if (style.textContent.includes('@keyframes') || style.textContent.includes('.ugly-') || style.textContent.includes('.ascii-art-block') || style.textContent.includes('title-char-')) {
-                     fullHtml += style.textContent;
+            let styleContent = "";
+            const styleSheets = document.styleSheets;
+            for (let i = 0; i < styleSheets.length; i++) {
+                const sheet = styleSheets[i];
+                if (sheet.href && (sheet.href.includes('tailwindcss') || sheet.href.includes('tone'))) {
+                    continue;
                 }
-            });
-            fullHtml += ` body { font-family: 'MS PGothic', 'IPAMonaPGothic', 'Mona', monospace, sans-serif; } </style></head><body><div id="generatedContent">${generatedHtml}</div></body></html>`;
+                try {
+                    const rules = sheet.cssRules || sheet.rules;
+                    for (let j = 0; j < rules.length; j++) {
+                        const rule = rules[j];
+                        if (rule.cssText.includes('@keyframes') || 
+                            (rule.selectorText && (
+                                rule.selectorText.includes('.ugly-') ||
+                                rule.selectorText.includes('.ascii-art-block') ||
+                                rule.selectorText.includes('.title-char-') ||
+                                rule.selectorText.includes('#generatedContent') 
+                            ))
+                           ) {
+                            styleContent += rule.cssText + '\n';
+                        }
+                    }
+                } catch (e) {
+                    // console.warn("Could not read CSS rules from stylesheet: " + (sheet.href || 'inline sheet'), e);
+                }
+            }
+            styleContent += `
+                #generatedContent * { box-sizing: border-box !important; margin:0 !important; padding:0 !important; }
+                #generatedContent table, #generatedContent th, #generatedContent td { border-collapse: separate !important; caption-side: bottom !important; }
+                #generatedContent img { max-width: 100% !important; height: auto !important; display: block !important; margin: 12px auto !important; border: 6px solid yellow !important; }
+            `;
+
+
+            let fullHtml = `<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><title>${sanitizedPageTitle}</title><style>${styleContent}</style></head><body><div id="generatedContent">${generatedHtml}</div></body></html>`;
 
             const blob = new Blob([fullHtml], { type: 'text/html' });
             const url = URL.createObjectURL(blob);
@@ -457,64 +507,42 @@
                 getRandomElement(classicGifs)
             );
 
-            let html = '';
+            let html = ''; 
             const bodyColors = getRandomElement(garishColorPairs);
             let overallStyle = `background-color: ${bodyColors.bg} !important; color: ${bodyColors.text} !important; font-family: ${getRandomElement(badFonts)} !important; padding: 30px !important; border: 30px ${getRandomElement(['groove', 'ridge', 'inset', 'outset', 'double'])} ${getRandomElement(garishColorPairs).bg} !important;`;
             if (Math.random() < 0.7) overallStyle += ` background-image: url('https://placehold.co/60x60/${getRandomElement(garishColorPairs).bg.substring(1)}/${getRandomElement(garishColorPairs).text.substring(1)}/gif?text=カオス&font=impact'); background-repeat: repeat !important; background-blend-mode: ${getRandomElement(['multiply', 'screen', 'overlay', 'darken', 'lighten', 'color-dodge', 'color-burn', 'hard-light', 'soft-light', 'difference', 'exclusion', 'hue', 'saturation', 'color', 'luminosity'])} !important;`;
             if (Math.random() < 0.6) overallStyle = `padding: 30px !important; border: 30px ${getRandomElement(['groove', 'ridge', 'inset', 'outset', 'double'])} ${getRandomElement(garishColorPairs).bg} !important;` + ` class="ugly-rainbow-bg"`;
 
-            // #generatedContent の直下にスタイルを記述
-            html = `<div id="generatedContent" style="${overallStyle}">`;
-            html += `<style>
-                @keyframes blink { 0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); } 25% { opacity: 0.1; transform: scale(1.1) rotate(-2deg); } 50% { opacity: 1; transform: scale(0.98) rotate(0deg); } 75% { opacity: 0.1; transform: scale(1.1) rotate(2deg); } }
-                .ugly-blink { animation: blink 1.0s linear infinite; }
-                .icon-blink { display: inline-block; animation: blink 0.7s linear infinite alternate; }
-                @keyframes marquee-scroll { 0% { transform: translateX(50px) rotate(-2deg) skewX(-4deg); } 25% { transform: translateX(-180%) rotate(0.5deg) skewX(1deg) scaleY(1.1); } 50% { transform: translateX(-380%) rotate(2deg) skewX(4deg) scaleY(0.9); } 75% { transform: translateX(-580%) rotate(-0.5deg) skewX(-1deg) scaleY(1.05); } 100% { transform: translateX(-780%) rotate(-2deg) skewX(-4deg); } }
-                .ugly-marquee-container { width: 100%; overflow: hidden; padding: 12px 0; margin: 18px 0; transform: skewY(-2deg) rotate(0.5deg); }
-                .ugly-marquee-text { display: inline-block; padding-left: 100%; animation: marquee-scroll 12s linear infinite; white-space: nowrap; font-size: 28pt; font-weight: 900; }
-                @keyframes rainbow-flow { 0% { background-position: 0% center; } 50% { background-position: 200% center; } 100% { background-position: 400% center; } }
-                .ugly-rainbow-text { background-image: linear-gradient(60deg, red,deeppink,orange,yellow,lime,springgreen,cyan,blue,darkviolet,magenta,red,deeppink,orange,yellow,lime,springgreen,cyan,blue,darkviolet,magenta); background-size: 400% auto; -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 900; animation: rainbow-flow 2.0s linear infinite; }
-                @keyframes wavy-text-anim { 0%, 100% { transform: translateY(0) rotate(0deg) skewX(0deg) scale(1); } 15% { transform: translateY(-10px) rotate(-3deg) skewX(7deg) scale(1.1); } 30% { transform: translateY(5px) rotate(1.5deg) skewX(-4deg) scale(0.95); } 45% { transform: translateY(-8px) rotate(2.5deg) skewX(5deg) scale(1.05); } 60% { transform: translateY(6px) rotate(-1deg) skewX(-5deg) scale(1.02); } 75% { transform: translateY(-4px) rotate(1.5deg) skewX(3deg) scale(0.9); } 90% { transform: translateY(3px) rotate(-1.5deg) skewX(-3deg) scale(1.01); } }
-                .title-char-wavy { display: inline-block; animation: wavy-text-anim 1.8s ease-in-out infinite; }
-                @keyframes bounce-char-anim {0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-12px);} 60% {transform: translateY(-8px);}}
-                .title-char-bounce { display: inline-block; animation: bounce-char-anim 2.0s ease-in-out infinite; }
-                @keyframes spin-zoom-char-anim { 0%, 100% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(360deg) scale(1.3); } }
-                .title-char-spinzoom { display: inline-block; animation: spin-zoom-char-anim 2.5s linear infinite; }
-                @keyframes shake-char-anim { 0% { transform: translate(1px, 1px) rotate(0deg); } 10% { transform: translate(-1px, -1px) rotate(-0.5deg); } 20% { transform: translate(-2px, 0px) rotate(0.5deg); } 30% { transform: translate(2px, 1px) rotate(0deg); } 40% { transform: translate(1px, -1px) rotate(0.5deg); } 50% { transform: translate(-1px, 1px) rotate(-0.5deg); } 60% { transform: translate(-2px, 1px) rotate(0deg); } 70% { transform: translate(2px, 0px) rotate(-0.5deg); } 80% { transform: translate(-1px, -1px) rotate(0.5deg); } 90% { transform: translate(1px, 1px) rotate(0deg); } 100% { transform: translate(1px, -1px) rotate(-0.5deg); } }
-                .title-char-shake { display: inline-block; animation: shake-char-anim 1.2s linear infinite; }
-                .ascii-art-block { padding: 12px; margin: 18px auto; border: 4px dotted; overflow-x: auto; white-space: pre; font-family: 'MS PGothic', 'IPAMonaPGothic', 'Mona', monospace !important; line-height: 1.15; font-size: 9pt; text-align: left; display: inline-block; max-width: 100%; }
-                #generatedContent * { box-sizing: border-box !important; margin:0 !important; padding:0 !important; } /* 強制リセットは維持 */
-                #generatedContent table, #generatedContent th, #generatedContent td { border-collapse: separate !important; border-spacing: ${getRandomInt(3,12)}px !important; caption-side: bottom !important; }
-                #generatedContent img { max-width: 100% !important; height: auto !important; display: block !important; margin: 12px auto !important; border: 6px solid yellow !important; }
-            </style>`; // styleタグをここで閉じる
+            
+            let generatedPageContent = ''; // 生成されるページ内容はこちらに貯める
 
             let siteTitle = userTitle;
             if (Math.random() < 0.98) siteTitle = getRandomElement(titlePrefixes) + siteTitle; 
             if (Math.random() < 0.98) siteTitle += getRandomElement(titleSuffixes); 
             
-            html += `<center style="margin-bottom:30px;">`;
+            generatedPageContent += `<center style="margin-bottom:30px;">`;
             const titleEffectType = getRandomInt(1,7); 
             if (titleEffectType <= 2) { 
-                html += `<h1 style="font-size:${getRandomInt(40,100)}pt !important; line-height:1.5;">${makeAnimatedTitle(siteTitle)}</h1>`;
+                generatedPageContent += `<h1 style="font-size:${getRandomInt(40,100)}pt !important; line-height:1.5;">${makeAnimatedTitle(siteTitle)}</h1>`;
             } else if (titleEffectType === 3) {
-                html += makeMarquee(siteTitle, getRandomElement(garishColorPairs).bg, getRandomElement(garishColorPairs).text);
+                generatedPageContent += makeMarquee(siteTitle, getRandomElement(garishColorPairs).bg, getRandomElement(garishColorPairs).text);
             } else if (titleEffectType === 4) {
-                html += `<h1 style="${getRandomUglyStyle(false, true)}font-size:${getRandomInt(45,90)}pt !important;">${makeBlinking(siteTitle)}</h1>`;
+                generatedPageContent += `<h1 style="${getRandomUglyStyle(false, true)}font-size:${getRandomInt(45,90)}pt !important;">${makeBlinking(siteTitle)}</h1>`;
             } else if (titleEffectType === 5) {
-                 html += `<h1 style="${getRandomUglyStyle(false, true)}font-size:${getRandomInt(45,90)}pt !important;">${makeRainbowText(siteTitle)}</h1>`;
+                 generatedPageContent += `<h1 style="${getRandomUglyStyle(false, true)}font-size:${getRandomInt(45,90)}pt !important;">${makeRainbowText(siteTitle)}</h1>`;
             } else if (titleEffectType === 6) {
-                html += `<h1 style="font-size:${getRandomInt(40,90)}pt !important; line-height:1.5; word-break:break-all;">${siteTitle.split('').map(char => `<span style="${getRandomUglyStyle(false, true)} display:inline-block !important; padding:0 4px !important; margin: 0 1px !important;">${char}</span>`).join('')}</h1>`;
+                generatedPageContent += `<h1 style="font-size:${getRandomInt(40,90)}pt !important; line-height:1.5; word-break:break-all;">${siteTitle.split('').map(char => `<span style="${getRandomUglyStyle(false, true)} display:inline-block !important; padding:0 4px !important; margin: 0 1px !important;">${char}</span>`).join('')}</h1>`;
             } else { 
-                html += `<div style="padding:15px; border: 7px groove ${getRandomElement(garishColorPairs).text}; background-color:${getRandomElement(garishColorPairs).bg}; transform: rotate(${getRandomInt(-3,3)}deg);">${makeAsciiArtBlock()}</div><h2 style="${getRandomUglyStyle(false,true)}font-size:${getRandomInt(20,50)}pt !important;">${siteTitle}</h2>`;
+                generatedPageContent += `<div style="padding:15px; border: 7px groove ${getRandomElement(garishColorPairs).text}; background-color:${getRandomElement(garishColorPairs).bg}; transform: rotate(${getRandomInt(-3,3)}deg);">${makeAsciiArtBlock()}</div><h2 style="${getRandomUglyStyle(false,true)}font-size:${getRandomInt(20,50)}pt !important;">${siteTitle}</h2>`;
             }
-            html += `<p style="margin-top:25px;">${makeBlinkingIcon(getRandomElement(uglyIcons))} <img src="${getRandomElement(classicGifs)}" alt="Cool GIF" style="transform:rotate(${getRandomInt(-35,35)}deg) scale(${getRandomInt(6,14)/10}) skewX(${getRandomInt(-10,10)}deg) !important; display:inline-block !important; vertical-align:middle !important;"> ${makeBlinkingIcon(getRandomElement(uglyIcons))} <img src="${getRandomElement(classicGifs)}" alt="Another Cool GIF" style="transform:scaleX(-1) rotate(${getRandomInt(-35,35)}deg) scale(${getRandomInt(6,14)/10}) skewY(${getRandomInt(-10,10)}deg) !important; display:inline-block !important; vertical-align:middle !important;"> ${makeBlinkingIcon(getRandomElement(uglyIcons))}</p>`;
-            html += `</center><hr style="border: 12px ${getRandomElement(['dashed', 'dotted', 'double', 'groove', 'ridge', 'inset', 'outset'])} ${getRandomElement(garishColorPairs).bg} !important; margin: 35px 0 !important; transform: rotate(${getRandomInt(-2,2)}deg) !important;">`;
+            generatedPageContent += `<p style="margin-top:25px;">${makeBlinkingIcon(getRandomElement(uglyIcons))} <img src="${getRandomElement(classicGifs)}" alt="Cool GIF" style="transform:rotate(${getRandomInt(-35,35)}deg) scale(${getRandomInt(6,14)/10}) skewX(${getRandomInt(-10,10)}deg) !important; display:inline-block !important; vertical-align:middle !important;"> ${makeBlinkingIcon(getRandomElement(uglyIcons))} <img src="${getRandomElement(classicGifs)}" alt="Another Cool GIF" style="transform:scaleX(-1) rotate(${getRandomInt(-35,35)}deg) scale(${getRandomInt(6,14)/10}) skewY(${getRandomInt(-10,10)}deg) !important; display:inline-block !important; vertical-align:middle !important;"> ${makeBlinkingIcon(getRandomElement(uglyIcons))}</p>`;
+            generatedPageContent += `</center><hr style="border: 12px ${getRandomElement(['dashed', 'dotted', 'double', 'groove', 'ridge', 'inset', 'outset'])} ${getRandomElement(garishColorPairs).bg} !important; margin: 35px 0 !important; transform: rotate(${getRandomInt(-2,2)}deg) !important;">`;
 
-            html += `<p style="${getRandomUglyStyle(true, true)}">ようこそ我が名は<strong style="color:red !important; font-size:220% !important; ${getRandomUglyStyle(false, true)}">${userTitle}</strong>！この電脳空間の深淵、いや、混沌の坩堝、終末の宴、そして絶望のカーニバルへ！ ${getRandomElement(kaomojiSymbols)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</p>`;
-            html += `<p style="${getRandomUglyStyle(true, true)}">${getRandomElement(verboseLeadIns)}このサイトの管理人、つまりこのワタクシ様が、血と汗と涙と鼻水とその他いろいろな体液と魂の欠片とSAN値を犠牲にして（大嘘乙アンド乙アンド乙）作り上げた、珠玉の（？）いや、魔境の、いや、神々の遊び場的、禁断のコンテンツをとくとご覧あれ！ ${getRandomElement(verboseTrailOuts)}</p>`;
-            if (Math.random() < 0.7) html += `<p style="${getRandomUglyStyle(true, true)}font-size:7pt !important;">${getRandomElement(pseudoBusinessJargon)} ${getRandomElement(kaomojiSymbols)} ${getRandomElement(chuunibyouPhrases)}</p>`;
-            if (Math.random() < 0.5) html += `<div style="text-align:center; margin:20px 0; padding: 5px; border: 3px dashed ${getRandomElement(garishColorPairs).text}; background-color:${getRandomElement(garishColorPairs).bg};">${makeAsciiArtBlock()}</div>`;
-            html += `<br><br>`;
+            generatedPageContent += `<p style="${getRandomUglyStyle(true, true)}">ようこそ我が名は<strong style="color:red !important; font-size:220% !important; ${getRandomUglyStyle(false, true)}">${userTitle}</strong>！この電脳空間の深淵、いや、混沌の坩堝、終末の宴、そして絶望のカーニバルへ！ ${getRandomElement(kaomojiSymbols)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</p>`;
+            generatedPageContent += `<p style="${getRandomUglyStyle(true, true)}">${getRandomElement(verboseLeadIns)}このサイトの管理人、つまりこのワタクシ様が、汗と涙とその他いろいろな液体と魂の欠片を犠牲にして（大嘘）作り上げた、珠玉の（？）いや、魔境の、いや、おもしろコンテンツをとくとご覧あれ！ ${getRandomElement(verboseTrailOuts)}</p>`; //表現変更
+            if (Math.random() < 0.7) generatedPageContent += `<p style="${getRandomUglyStyle(true, true)}font-size:7pt !important;">${getRandomElement(pseudoBusinessJargon)} ${getRandomElement(kaomojiSymbols)} ${getRandomElement(chuunibyouPhrases)}</p>`;
+            if (Math.random() < 0.5) generatedPageContent += `<div style="text-align:center; margin:20px 0; padding: 5px; border: 3px dashed ${getRandomElement(garishColorPairs).text}; background-color:${getRandomElement(garishColorPairs).bg};">${makeAsciiArtBlock()}</div>`;
+            generatedPageContent += `<br><br>`;
 
             const paragraphs = userContent.split('\n').filter(p => p.trim() !== '');
             paragraphs.forEach((para, index) => {
@@ -523,7 +551,7 @@
                     processedPara = `${getRandomElement(verboseLeadIns)} ${processedPara} ${getRandomElement(verboseTrailOuts)}`;
                 }
                 if (Math.random() < 0.7) { 
-                    processedPara = `<strong style="font-size:150% !important; ${getRandomUglyStyle(false, true)}">【超絶最終禁断重要機密事項Ver.X】</strong> ${processedPara} <strong style="color: ${getRandomElement(garishColorPairs).text} !important; background-color: ${getRandomElement(garishColorPairs).bg} !important; padding:8px !important; border:5px solid yellow !important; display:inline-block !important; transform: rotate(${getRandomInt(-3,3)}deg) !important;">ここ、マジで宇宙の最終追試に出るからな！魂に刻み込んどけよ！ ${getRandomElement(oldNetSlang)} ${getRandomElement(kaomojiSymbols)} ${getRandomElement(chuunibyouPhrases)}</strong>`;
+                    processedPara = `<strong style="font-size:150% !important; ${getRandomUglyStyle(false, true)}">【超絶最終禁断重要機密事項Ver.X】</strong> ${processedPara} <strong style="color: ${getRandomElement(garishColorPairs).text} !important; background-color: ${getRandomElement(garishColorPairs).bg} !important; padding:8px !important; border:5px solid yellow !important; display:inline-block !important; transform: rotate(${getRandomInt(-3,3)}deg) !important;">ここ、マジでテストに出るからな！魂に刻み込んどけよ！ ${getRandomElement(oldNetSlang)} ${getRandomElement(kaomojiSymbols)} ${getRandomElement(chuunibyouPhrases)}</strong>`;
                 }
                 if (Math.random() < 0.6) { 
                     processedPara = processedPara.split(' ').map(word => {
@@ -536,16 +564,16 @@
 
                 const displayType = getRandomInt(1,15); 
                 if (displayType <= 2 && para.length > 3) { 
-                     html += makeSpeechBubbleCSS(processedPara);
+                     generatedPageContent += makeSpeechBubbleCSS(processedPara);
                 } else if (displayType <= 5) { 
-                     html += `<div style="text-align:center; margin: 25px 0; padding:10px; border: 5px ${getRandomElement(['dashed','dotted'])} ${getRandomElement(garishColorPairs).bg}; background-color:${getRandomElement(garishColorPairs).text};">${makeAsciiArtBlock()} <p style="${getRandomUglyStyle(true,true)}font-size:0.8em !important;">${processedPara.substring(0,getRandomInt(5,25))}... ${getRandomElement(chuunibyouPhrases)}</p></div>`;
+                     generatedPageContent += `<div style="text-align:center; margin: 25px 0; padding:10px; border: 5px ${getRandomElement(['dashed','dotted'])} ${getRandomElement(garishColorPairs).bg}; background-color:${getRandomElement(garishColorPairs).text};">${makeAsciiArtBlock()} <p style="${getRandomUglyStyle(true,true)}font-size:0.8em !important;">${processedPara.substring(0,getRandomInt(5,25))}... ${getRandomElement(chuunibyouPhrases)}</p></div>`;
                 } else if (displayType <= 7 && para.length > 10) { 
-                     html += `<br><table style="width:${getRandomInt(25,100)}% !important; margin:30px auto !important; ${getRandomUglyStyle(false, true)} transform: rotate(${getRandomInt(-2,2)}deg) skewX(${getRandomInt(-3,3)}deg) !important;"><caption><strong style="${getRandomUglyStyle(false, true)}font-size:2em !important;">${makeBlinking(getRandomElement(["謎の最終禁断データ表","極秘開示最終情報","今日の断末魔レクイエム"]))}</strong></caption><thead><tr><th style="${getRandomUglyStyle(false, true)}">${makeBlinking("情報Ω改")}</th><th style="${getRandomUglyStyle(false, true)}">${makeRainbowText("情報ΨNEO")}</th><th style="${getRandomUglyStyle(false, true)}">情報ΔZERO</th></tr></thead><tbody><tr><td style="${getRandomUglyStyle(true, true)}">${para.substring(0,getRandomInt(2,10))}... ${getRandomElement(kaomojiSymbols)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</td><td style="${getRandomUglyStyle(true, true)}">${getRandomElement(annotations)}</td><td style="${getRandomUglyStyle(true, true)}">${makeAsciiArtBlock()} ${getRandomElement(oldNetSlang)} ${getRandomElement(chuunibyouPhrases)}</td></tr></tbody></table>`;
+                     generatedPageContent += `<br><table style="width:${getRandomInt(25,100)}% !important; margin:30px auto !important; ${getRandomUglyStyle(false, true)} transform: rotate(${getRandomInt(-2,2)}deg) skewX(${getRandomInt(-3,3)}deg) !important;"><caption><strong style="${getRandomUglyStyle(false, true)}font-size:2em !important;">${makeBlinking(getRandomElement(["謎の最終データ表","極秘開示情報","今日の魂のメロディ"]))}</strong></caption><thead><tr><th style="${getRandomUglyStyle(false, true)}">${makeBlinking("情報Ω改")}</th><th style="${getRandomUglyStyle(false, true)}">${makeRainbowText("情報ΨNEO")}</th><th style="${getRandomUglyStyle(false, true)}">情報ΔZERO</th></tr></thead><tbody><tr><td style="${getRandomUglyStyle(true, true)}">${para.substring(0,getRandomInt(2,10))}... ${getRandomElement(kaomojiSymbols)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</td><td style="${getRandomUglyStyle(true, true)}">${getRandomElement(annotations)}</td><td style="${getRandomUglyStyle(true, true)}">${makeAsciiArtBlock()} ${getRandomElement(oldNetSlang)} ${getRandomElement(chuunibyouPhrases)}</td></tr></tbody></table>`; //表現変更
                 } else if (displayType <= 9) { 
-                    html += `<p style="${getRandomUglyStyle(false, true)} font-size:${getRandomInt(15,40)}pt !important; text-align:center; margin: 20px 0; padding:10px; border:3px solid ${getRandomElement(garishColorPairs).text}; background-color:${getRandomElement(garishColorPairs).bg};">${makeAnimatedTitle(getRandomElement(chuunibyouPhrases))}</p>`;
+                    generatedPageContent += `<p style="${getRandomUglyStyle(false, true)} font-size:${getRandomInt(15,40)}pt !important; text-align:center; margin: 20px 0; padding:10px; border:3px solid ${getRandomElement(garishColorPairs).text}; background-color:${getRandomElement(garishColorPairs).bg};">${makeAnimatedTitle(getRandomElement(chuunibyouPhrases))}</p>`;
                 }
                 else { 
-                    html += `<div style="margin-bottom: 40px !important; padding:30px !important; border: 8px ${getRandomElement(['dotted', 'dashed', 'double', 'groove', 'ridge'])} ${getRandomElement(garishColorPairs).bg} !important; ${getRandomUglyStyle(true, true)} transform: rotate(${getRandomInt(-2,2)}deg) !important;">`;
+                    generatedPageContent += `<div style="margin-bottom: 40px !important; padding:30px !important; border: 8px ${getRandomElement(['dotted', 'dashed', 'double', 'groove', 'ridge'])} ${getRandomElement(garishColorPairs).bg} !important; ${getRandomUglyStyle(true, true)} transform: rotate(${getRandomInt(-2,2)}deg) !important;">`;
                     const words = processedPara.split(' ');
                     let styledPara = words.map(word => {
                         if (Math.random() < 0.2) return makeBlinking(word, getRandomUglyStyle(false, true));
@@ -554,36 +582,36 @@
                         if (Math.random() < 0.3) return `<strong style="font-size:${getRandomInt(7,70)}pt !important; color:${getRandomElement(garishColorPairs).text} !important; background-color:${getRandomElement(garishColorPairs).bg} !important; padding: 0 6px !important; margin: 0 3px !important; display:inline-block !important; border: ${getRandomInt(1,4)}px ${getRandomElement(['solid','dotted'])} ${getRandomElement(garishColorPairs).text} !important;">${word}</strong>`;
                         return word;
                     }).join(' ');
-                    html += `<p style="line-height:${getRandomInt(7,35)/10} !important; overflow-wrap: break-word !important; word-break: break-all !important;">${styledPara} ${Math.random() < 0.4 ? getRandomElement(kaomojiSymbols) : ''}  ${Math.random() < 0.15 ? makeBlinkingIcon(getRandomElement(uglyIcons)) : ''} ${Math.random() < 0.2 ? getRandomElement(chuunibyouPhrases) : ''}</p>`;
-                    if (Math.random() < 0.3) html += `<div style="text-align:center; margin-top:15px; padding: 5px; border: 2px dashed ${getRandomElement(garishColorPairs).text};">${makeAsciiArtBlock()}</div>`;
-                    html += `</div>`;
+                    generatedPageContent += `<p style="line-height:${getRandomInt(7,35)/10} !important; overflow-wrap: break-word !important; word-break: break-all !important;">${styledPara} ${Math.random() < 0.4 ? getRandomElement(kaomojiSymbols) : ''}  ${Math.random() < 0.15 ? makeBlinkingIcon(getRandomElement(uglyIcons)) : ''} ${Math.random() < 0.2 ? getRandomElement(chuunibyouPhrases) : ''}</p>`;
+                    if (Math.random() < 0.3) generatedPageContent += `<div style="text-align:center; margin-top:15px; padding: 5px; border: 2px dashed ${getRandomElement(garishColorPairs).text};">${makeAsciiArtBlock()}</div>`;
+                    generatedPageContent += `</div>`;
                 }
 
                 if (Math.random() < 0.95 && displayType > 2) { 
-                    html += `<span style="font-size: ${getRandomInt(1,12)}pt !important; color: ${getRandomElement(garishColorPairs).text} !important; background-color: ${getRandomElement(garishColorPairs).bg} !important; display:block !important; text-align:${getRandomElement(['left','center','right'])} !important; padding: 5px 10px !important; margin-top: -25px !important; margin-bottom:25px !important; transform: rotate(${getRandomInt(-8,8)}deg) skewX(${getRandomInt(-18,18)}deg) !important; border: 2px ${getRandomElement(['dotted','dashed'])} ${getRandomElement(garishColorPairs).text} !important;">${getRandomElement(annotations)} ${Math.random() < 0.5 ? getRandomElement(oldNetSlang) : ''} ${Math.random() < 0.3 ? getRandomElement(kaomojiSymbols) : ''} ${Math.random() < 0.2 ? getRandomElement(chuunibyouPhrases) : ''}</span>`;
+                    generatedPageContent += `<span style="font-size: ${getRandomInt(1,12)}pt !important; color: ${getRandomElement(garishColorPairs).text} !important; background-color: ${getRandomElement(garishColorPairs).bg} !important; display:block !important; text-align:${getRandomElement(['left','center','right'])} !important; padding: 5px 10px !important; margin-top: -25px !important; margin-bottom:25px !important; transform: rotate(${getRandomInt(-8,8)}deg) skewX(${getRandomInt(-18,18)}deg) !important; border: 2px ${getRandomElement(['dotted','dashed'])} ${getRandomElement(garishColorPairs).text} !important;">${getRandomElement(annotations)} ${Math.random() < 0.5 ? getRandomElement(oldNetSlang) : ''} ${Math.random() < 0.3 ? getRandomElement(kaomojiSymbols) : ''} ${Math.random() < 0.2 ? getRandomElement(chuunibyouPhrases) : ''}</span>`;
                 }
                 if (Math.random() < 0.5) { 
-                    html += `<center><img src="${getRandomElement(placeholderImages)}" alt="謎の最終禁断画像" style="border: 15px ${getRandomElement(['solid','dotted','dashed','double','groove','ridge','inset','outset'])} ${getRandomElement(garishColorPairs).bg} !important; margin:30px 0 !important; transform: rotate(${getRandomInt(-25,25)}deg) scale(${getRandomInt(4,15)/10}) skewX(${getRandomInt(-15,15)}deg) !important; box-shadow: 12px 12px 25px ${getRandomElement(garishColorPairs).text}, 0 0 10px white !important;"></center>`;
+                    generatedPageContent += `<center><img src="${getRandomElement(placeholderImages)}" alt="謎の最終禁断画像" style="border: 15px ${getRandomElement(['solid','dotted','dashed','double','groove','ridge','inset','outset'])} ${getRandomElement(garishColorPairs).bg} !important; margin:30px 0 !important; transform: rotate(${getRandomInt(-25,25)}deg) scale(${getRandomInt(4,15)/10}) skewX(${getRandomInt(-15,15)}deg) !important; box-shadow: 12px 12px 25px ${getRandomElement(garishColorPairs).text}, 0 0 10px white !important;"></center>`;
                 }
-                if (Math.random() < 0.25) html += `<p style="${getRandomUglyStyle(true, true)}font-size:7pt !important;">${getRandomElement(pseudoBusinessJargon)} ${getRandomElement(kaomojiSymbols)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</p>`;
+                if (Math.random() < 0.25) generatedPageContent += `<p style="${getRandomUglyStyle(true, true)}font-size:7pt !important;">${getRandomElement(pseudoBusinessJargon)} ${getRandomElement(kaomojiSymbols)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</p>`;
 
-                if (index < paragraphs.length -1) html += `<br><hr style="border-top: ${getRandomInt(6,15)}px ${getRandomElement(['dotted', 'dashed', 'double', 'groove', 'ridge', 'inset'])} ${getRandomElement(garishColorPairs).text} !important; margin: 25px 0 ${getRandomInt(25,45)}px 0 !important; height:${getRandomInt(10,25)}px !important; background-color:${getRandomElement(garishColorPairs).bg} !important; transform: skewX(${getRandomInt(-12,12)}deg) rotate(${getRandomInt(-2,2)}deg) !important;"><br>`;
+                if (index < paragraphs.length -1) generatedPageContent += `<br><hr style="border-top: ${getRandomInt(6,15)}px ${getRandomElement(['dotted', 'dashed', 'double', 'groove', 'ridge', 'inset'])} ${getRandomElement(garishColorPairs).text} !important; margin: 25px 0 ${getRandomInt(25,45)}px 0 !important; height:${getRandomInt(10,25)}px !important; background-color:${getRandomElement(garishColorPairs).bg} !important; transform: skewX(${getRandomInt(-12,12)}deg) rotate(${getRandomInt(-2,2)}deg) !important;"><br>`;
             });
 
-            html += `<hr style="border-top: 15px double ${getRandomElement(garishColorPairs).bg} !important; margin-top:60px !important;">`;
-            html += `<p style="${getRandomUglyStyle(false, true)}">どうだったかな？この<strong style="font-size:250% !important; ${getRandomUglyStyle(false, true)}" class="ugly-blink">${userTitle}</strong>のページは、君の目に新しい刺激を与えられたかな？ ${getRandomElement(kaomojiSymbols)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</p>`;
-            html += `<p style="font-family: '${getRandomElement(badFonts)}', cursive !important; font-size: ${getRandomInt(3,18)}pt !important; text-align:center !important; ${getRandomUglyStyle(true, true)}">${getRandomElement(verboseLeadIns)}またのお越しを、心よりお待ち申し上げておりますぞ！ ${getRandomElement(verboseTrailOuts)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(oldNetSlang)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</p>`;
-            if (Math.random() < 0.6) html += `<div style="text-align:center; margin: 25px 0; padding:10px; border:4px groove ${getRandomElement(garishColorPairs).text}; background-color:${getRandomElement(garishColorPairs).bg};">${makeAsciiArtBlock()}</div>`;
+            generatedPageContent += `<hr style="border-top: 15px double ${getRandomElement(garishColorPairs).bg} !important; margin-top:60px !important;">`;
+            generatedPageContent += `<p style="${getRandomUglyStyle(false, true)}">どうだったかな？この<strong style="font-size:250% !important; ${getRandomUglyStyle(false, true)}" class="ugly-blink">${userTitle}</strong>のページは、君の目に新しい刺激を与えられたかな？ ${getRandomElement(kaomojiSymbols)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</p>`;
+            generatedPageContent += `<p style="font-family: '${getRandomElement(badFonts)}', cursive !important; font-size: ${getRandomInt(3,18)}pt !important; text-align:center !important; ${getRandomUglyStyle(true, true)}">${getRandomElement(verboseLeadIns)}またのお越しを、心よりお待ち申し上げておりますぞ！ ${getRandomElement(verboseTrailOuts)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(oldNetSlang)} ${makeBlinkingIcon(getRandomElement(uglyIcons))} ${getRandomElement(chuunibyouPhrases)}</p>`;
+            if (Math.random() < 0.6) generatedPageContent += `<div style="text-align:center; margin: 25px 0; padding:10px; border:4px groove ${getRandomElement(garishColorPairs).text}; background-color:${getRandomElement(garishColorPairs).bg};">${makeAsciiArtBlock()}</div>`;
 
-            html += `<hr style="height:30px !important; background-image: linear-gradient(to right, ${getRandomElement(garishColorPairs).bg}, ${getRandomElement(garishColorPairs).text}, ${getRandomElement(garishColorPairs).bg}, ${getRandomElement(garishColorPairs).text}, ${getRandomElement(garishColorPairs).bg}, ${getRandomElement(garishColorPairs).text}, ${getRandomElement(garishColorPairs).bg}, ${getRandomElement(garishColorPairs).text}, ${getRandomElement(garishColorPairs).bg}) !important; border:none !important; margin: 40px 0 !important; transform: skewY(${getRandomInt(-3,3)}deg) !important;">`;
-            html += `<div style="text-align: center !important; ${getRandomUglyStyle(false, true)} padding: 10px !important;" class="${Math.random() < 0.5 ? 'ugly-rainbow-bg' : ''}">`;
-            html += `<p style="line-height:2.2 !important; font-size:0.7em !important;">アクセスカウンター: <img src="https://placehold.co/200x80/${getRandomElement(garishColorPairs).bg.substring(1)}/${getRandomElement(garishColorPairs).text.substring(1)}/?text=${getRandomInt(10000000,999999999)}&font=impact" alt="アクセスカウンター" style="display:inline-block !important; vertical-align:middle !important; border:4px solid red !important; transform: rotate(${getRandomInt(-5,5)}deg) !important;"> 人目のお客様だ！キリ番ゲッターはBBSにポエムと黒歴史をカキコ必須な！ ${makeBlinkingIcon("🎊")} ${makeBlinkingIcon("💯")} ${makeBlinkingIcon("💸")}</p>`;
-            html += `<p style="line-height:2.2 !important; font-size:0.7em !important;"><img src="${getRandomElement(classicGifs)}" alt="工事中" style="display:inline-block !important; vertical-align:middle !important; transform: scale(${getRandomInt(8,12)/10}) !important;"> このサイトは Netscape Navigator -1.0 及び Internet Explorer 0.0 で最適に表示されるようには全くこれっぽっちも微塵も輪廻転生しても作られていませんが、魂と気合と愛と勇気とSAN値で見てください。推奨環境はカオスと狂気と無秩序です。</p>`;
-            html += `<p style="font-size: 4pt !important; line-height:2 !important; word-break:break-all !important;">(C) 1XXX - ${new Date().getFullYear()} ${userTitle}の電脳秘密結社NEOアマゾネス最終聖戦黙示録RETURNS FOREVER. All rights maybe reserved, maybe not. Who cares? Don't sue me bro. If you can read this, you are too close to the abyss. This site is protected by ancient curse. ${getRandomElement(kaomojiSymbols)} ${getRandomElement(oldNetSlang)} ${getRandomElement(chuunibyouPhrases)}</p>`;
-            html += `<a href="#" style="${getRandomUglyStyle(false, true)}font-size:1.5em !important; display:inline-block; margin:5px; padding:5px; border:2px solid;">${makeBlinking("ゲストブックに魂の叫びと遺言と黒歴史を記帳！")}</a> | <a href="#" style="${getRandomUglyStyle(false, true)}font-size:1.5em !important; display:inline-block; margin:5px; padding:5px; border:2px solid;">${makeRainbowText("お友達リンク（絶滅確定種・保護対象外）")}</a> | <a href="#" style="${getRandomUglyStyle(false, true)}font-size:1.5em !important; display:inline-block; margin:5px; padding:5px; border:2px solid;">管理人にラブレター（届いたら奇跡、読まれたらもっと奇跡、返事が来たら世界の終わり）</a>`;
-            html += `</div>`;
+            generatedPageContent += `<hr style="height:30px !important; background-image: linear-gradient(to right, ${getRandomElement(garishColorPairs).bg}, ${getRandomElement(garishColorPairs).text}, ${getRandomElement(garishColorPairs).bg}, ${getRandomElement(garishColorPairs).text}, ${getRandomElement(garishColorPairs).bg}, ${getRandomElement(garishColorPairs).text}, ${getRandomElement(garishColorPairs).bg}, ${getRandomElement(garishColorPairs).text}, ${getRandomElement(garishColorPairs).bg}) !important; border:none !important; margin: 40px 0 !important; transform: skewY(${getRandomInt(-3,3)}deg) !important;">`;
+            generatedPageContent += `<div style="text-align: center !important; ${getRandomUglyStyle(false, true)} padding: 10px !important;" class="${Math.random() < 0.5 ? 'ugly-rainbow-bg' : ''}">`;
+            generatedPageContent += `<p style="line-height:2.2 !important; font-size:0.7em !important;">アクセスカウンター: <img src="https://placehold.co/200x80/${getRandomElement(garishColorPairs).bg.substring(1)}/${getRandomElement(garishColorPairs).text.substring(1)}/?text=${getRandomInt(10000000,999999999)}&font=impact" alt="アクセスカウンター" style="display:inline-block !important; vertical-align:middle !important; border:4px solid red !important; transform: rotate(${getRandomInt(-5,5)}deg) !important;"> 人目のお客様だ！キリ番ゲッターはBBSに魂のポエムと若気の至りをカキコ必須な！ ${makeBlinkingIcon("🎊")} ${makeBlinkingIcon("💯")} ${makeBlinkingIcon("💸")}</p>`; //表現変更
+            generatedPageContent += `<p style="line-height:2.2 !important; font-size:0.7em !important;"><img src="${getRandomElement(classicGifs)}" alt="工事中" style="display:inline-block !important; vertical-align:middle !important; transform: scale(${getRandomInt(8,12)/10}) !important;"> このサイトは Netscape Navigator -1.0 及び Internet Explorer 0.0 で最適に表示されるようには全くこれっぽっちも微塵も輪廻転生しても作られていませんが、魂と気合と愛と勇気で見てください。推奨環境はカオスとユーモアです。</p>`; //表現変更
+            generatedPageContent += `<p style="font-size: 4pt !important; line-height:2 !important; word-break:break-all !important;">(C) 1XXX - ${new Date().getFullYear()} ${userTitle}の電脳秘密結社NEOアマゾネス最終決戦黙示録RETURNS FOREVER. All rights maybe reserved, maybe not. Who cares? Don't sue me plz. If you can read this, you are awesome. This site is full of mystery. ${getRandomElement(kaomojiSymbols)} ${getRandomElement(oldNetSlang)} ${getRandomElement(chuunibyouPhrases)}</p>`; //表現変更
+            generatedPageContent += `<a href="#" style="${getRandomUglyStyle(false, true)}font-size:1.5em !important; display:inline-block; margin:5px; padding:5px; border:2px solid;">${makeBlinking("ゲストブックに魂の叫びとポエムと若気の至りを記帳！")}</a> | <a href="#" style="${getRandomUglyStyle(false, true)}font-size:1.5em !important; display:inline-block; margin:5px; padding:5px; border:2px solid;">${makeRainbowText("お友達リンク（絶滅危惧種・保護対象）")}</a> | <a href="#" style="${getRandomUglyStyle(false, true)}font-size:1.5em !important; display:inline-block; margin:5px; padding:5px; border:2px solid;">管理人にファンレター（届いたら嬉しいな、読まれたらもっと嬉しいな、返事が来たら踊っちゃうかも！）</a>`; //表現変更
+            generatedPageContent += `</div>`;
             
-            html += `</div>`; // generatedContent の閉じ
+            html += generatedPageContent + `</div>`; // generatedContent の閉じ
 
             outputArea.innerHTML = html; 
             downloadButton.style.display = 'block';
